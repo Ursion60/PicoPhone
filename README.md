@@ -17,23 +17,38 @@ le lanceur affiche l'erreur et reste en vie.
 ## 1. Tester sur PC (recommandé d'abord)
 
 ```bash
-sudo dnf install gcc make git python3 pkgconf-pkg-config SDL2-devel   # dans la Distrobox
+tools/setup-deps.sh sim tools    # détecte apt/dnf/pacman/zypper/apk/xbps/emerge et installe tout
 tools/build_sim.sh               # clone MicroPython et le compile avec le module (~2 min)
 cd python && ../build/micropython/ports/unix/build-standard/micropython main.py
 ```
 
 Souris = doigt, Échap pour quitter. Le test automatique (lanceur -> appli -> Retour, avec captures
-`/tmp/phone_*.ppm`) : `cd python && SDL_VIDEODRIVER=dummy <micropython> ../host/test_flow.py`.
+`/tmp/phone_*.ppm`) : `cd python && SDL_VIDEODRIVER=dummy <micropython> ../host/test_flow.py` (idem pour `test_notes.py`, `test_notes_scroll.py`, `test_keyboard.py`, `test_i18n.py`).
 
 ## 2. Sur la carte
 
 1. Maintenir **BOOT** en branchant l'USB-C, copier `firmware/phone_core2350b.uf2` sur le lecteur RPI-RP2 qui apparaît
    (carte MicroPython `WAVESHARE_RP2350B_CORE` + module `phone` ; recompilable avec `tools/build_firmware.sh`).
-2. `pip install --user mpremote`, puis `tools/deploy.sh` : copie `main.py`, `appkit.py` et `apps/` sur la carte.
+2. `tools/setup-deps.sh tools udev` (une fois : venv avec mpremote + droits USB sans sudo), puis `tools/deploy.sh` : copie `main.py`, `appkit.py` et `apps/` sur la carte.
 3. Au démarrage, `main.py` s'exécute tout seul. Ctrl-C dans `mpremote` pour reprendre la main (REPL).
 
 Broches et hypothèses matérielles : `phone/config.h` (écran **ILI9341**, tactile **FT6336U** - à adapter si votre module
 est différent). Le module s'approprie `spi0` et `i2c0` : évitez `machine.SPI(0)` / `machine.I2C(0)` dans vos scripts.
+
+### Compatibilité Linux
+
+Les scripts ne supposent aucune distribution : `tools/setup-deps.sh [sim] [firmware] [tools] [udev]` choisit les
+bons paquets pour Debian/Ubuntu, Fedora, Arch, openSUSE, Alpine, Void et Gentoo. Python (Pillow, mpremote) est
+installé dans un venv local `.venv/` (évite l'erreur « externally-managed-environment » de pip sur les distros
+récentes) que les scripts `tools/*.sh` activent seuls. `gen_font.py` trouve DejaVu/Noto CJK via `fc-match`, quel que
+soit le dossier de polices de la distro. Testé : Ubuntu 24.04 (compilation du simulateur + 4 tests automatiques).
+
+- **Carte non reconnue / `Permission denied` sur `/dev/ttyACM0`** : `tools/setup-deps.sh udev` (règle `uaccess`,
+  désactive aussi ModemManager sur la carte), ou, sans systemd, ajoutez-vous au groupe `dialout` (Debian/Fedora)
+  ou `uucp` (Arch), puis reconnectez-vous.
+- **Lecteur RPI-RP2 non monté automatiquement** (WM sans automontage, serveur) : `picotool load -f firmware/phone_core2350b.uf2`
+  ou `udisksctl mount -b /dev/disk/by-label/RP2350`, ou monter à la main puis `cp`.
+- **Pas de SDL2 / session sans écran** : `SDL_VIDEODRIVER=dummy` exécute les tests sans fenêtre.
 
 ## 3. Écrire une appli
 
@@ -114,8 +129,7 @@ Utilisez `tap()` **ou** `touch()` dans une même boucle, pas les deux.
 - `tools/gen_font.py` : régénère `phone/font_data.c` (DejaVu Sans Bold 13/10/9 px, ASCII+Latin-1) et
   embarque aussi les glyphes CJK (japonais/chinois) nécessaires aux traductions de `python/i18n.py`,
   rendus avec une police Noto Sans CJK - **uniquement les caractères réellement utilisés dans
-  i18n.py** (pas une police CJK complète : trop volumineuse). `pip install pillow`, plus une police
-  Noto Sans CJK (`fonts-noto-cjk` sur Debian/Fedora) pour que le japonais/chinois s'affichent -
+  i18n.py** (pas une police CJK complète : trop volumineuse). (`tools/setup-deps.sh tools` installe Pillow et les polices Noto Sans CJK) pour que le japonais/chinois s'affichent -
   sans elle, gen_font.py le signale et ces langues s'afficheront en `?`.
 - `host/sim.c` : simulateur de l'écran d'accueil seul (compile en 1 s, sans MicroPython). `host/preview.c` : export .ppm.
 
@@ -132,8 +146,10 @@ Utilisez `tap()` **ou** `touch()` dans une même boucle, pas les deux.
   texte reste en alphabet latin.
 - Notes : chaque note a un titre et une description ("voir" ouvre la consultation, "Modifier"
   ré-ouvre le clavier pour les deux, à la suite) ; suppression sans annulation possible une fois
-  confirmée (2e tap sur ×) ; pas de défilement si la liste dépasse l'écran (les éléments en trop
-  ne s'affichent simplement pas).
+  confirmée (2e tap sur ×) ; au-delà de 6 lignes, deux flèches ▲▼ à côté du bouton « + » font défiler
+  la liste (le nouvel élément ajouté est affiché automatiquement) ; texte tronqué avec « .. » plutôt que de
+  passer sous le bouton ×, description longue coupée par « ... » ; sauvegarde atomique (`notes_data.json.tmp`
+  puis renommage) : une coupure en pleine écriture ne perd plus les notes.
 - Icônes : les 8 PNG fournis (`assets/icons/`) sont déjà convertis en `phone/icons_data.c` par
   `tools/gen_icons.py` (44x44, coins transparents) - relancez ce script si vous changez les images.
 

@@ -8,7 +8,7 @@ Génère phone/font_data.c : polices bitmap anti-aliasées (alpha 8 bits) pour l
 
 Usage (depuis la racine du projet) :
     python3 tools/gen_font.py [DejaVuSans-Bold.ttf] [police CJK]
-Dépendance : pip install pillow
+Dépendance : pillow (tools/setup-deps.sh tools). Les polices sont trouvées automatiquement.
 """
 import pathlib
 import sys
@@ -18,8 +18,33 @@ HERE = pathlib.Path(__file__).parent.parent
 sys.path.insert(0, str(HERE / "python"))
 import i18n   # noqa: E402  (juste pour la liste des chaînes traduites -> codepoints CJK à embarquer)
 
-LATIN_TTF = sys.argv[1] if len(sys.argv) > 1 else "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
-CJK_TTF = sys.argv[2] if len(sys.argv) > 2 else "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc"
+def find_font(patterns, fc_query):
+    """Cherche une police sans supposer la distribution : fc-match d'abord (fontconfig, présent
+    partout), puis un balayage des dossiers de polices usuels (Debian, Fedora, Arch, openSUSE, Alpine...)."""
+    import glob, os, shutil, subprocess
+    if shutil.which("fc-match"):
+        try:
+            path = subprocess.run(["fc-match", "-f", "%{file}", fc_query], capture_output=True,
+                                  text=True, timeout=10).stdout.strip()
+            if path and os.path.exists(path) and any(k.lower() in path.lower() for k in patterns):
+                return path
+        except Exception:
+            pass
+    roots = ["/usr/share/fonts", "/usr/local/share/fonts", os.path.expanduser("~/.local/share/fonts"),
+             os.path.expanduser("~/.fonts"), "/run/host/usr/share/fonts"]   # dernier : Distrobox/Flatpak
+    for root in roots:
+        for pat in patterns:
+            hits = sorted(glob.glob(os.path.join(root, "**", pat), recursive=True))
+            if hits:
+                return hits[0]
+    return None
+
+
+LATIN_TTF = sys.argv[1] if len(sys.argv) > 1 else (
+    find_font(["DejaVuSans-Bold.ttf"], "DejaVu Sans:bold") or "DejaVuSans-Bold.ttf")
+CJK_TTF = sys.argv[2] if len(sys.argv) > 2 else (
+    find_font(["NotoSansCJK-Bold.ttc", "NotoSansCJK*-Bold.ttc", "NotoSansCJK-Bold.otf", "NotoSansCJKjp-Bold.otf"],
+              "Noto Sans CJK JP:bold") or "NotoSansCJK-Bold.ttc")
 CJK_TTC_INDEX = 0   # 0 = premier visage du .ttc (Noto Sans CJK JP dans NotoSansCJK-*.ttc)
 
 FONTS = [("font_bold13", 13), ("font_small10", 10), ("font_tiny9", 9)]

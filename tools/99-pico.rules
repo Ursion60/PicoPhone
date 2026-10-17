@@ -1,0 +1,4 @@
+# Accès USB à la carte RP2350 / Pico (MicroPython + BOOTSEL) pour l'utilisateur connecté, sur toute
+# distribution avec systemd-logind (uaccess) : pas besoin d'être dans dialout (Debian/Fedora) ou uucp (Arch).
+SUBSYSTEM=="usb", ATTRS{idVendor}=="2e8a", TAG+="uaccess", ENV{ID_MM_DEVICE_IGNORE}="1"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="2e8a", TAG+="uaccess", ENV{ID_MM_DEVICE_IGNORE}="1"
