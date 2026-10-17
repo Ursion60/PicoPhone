@@ -1,0 +1,1606 @@
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 109 "../py/qstr.c"
+    MP_QSTRnumber_of_static,
+    MP_QSTRnumber_of_static,
+# 154 "../py/qstr.c"
+    MP_QSTRnumber_of - MP_QSTRnumber_of_static,
+# 231 "../py/qstr.c"
+        return MP_QSTR_;
+# 274 "../py/qstr.c"
+    return MP_QSTRnull;
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 620 "../py/parse.c"
+        qstr qst = MP_QSTRnull;
+        if (qst != MP_QSTRnull) {
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_math)) << 3) | 2)), (&mp_module_math) },
+# 812 "../py/parse.c"
+                    && (((uintptr_t)(((mp_parse_node_struct_t *)pn1)->nodes[0])) >> 4) == MP_QSTR_const
+                            ((mp_parse_node_struct_t *)pn1)->source_line, MP_QSTRnull);
+# 1351 "../py/parse.c"
+        mp_obj_exception_add_traceback(exc, lex->source_name, lex->tok_line, MP_QSTRnull);
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 30 "../py/scope.c" 2
+    [SCOPE_MODULE] = MP_QSTR__lt_module_gt_,
+    [SCOPE_LAMBDA] = MP_QSTR__lt_lambda_gt_,
+    [SCOPE_LIST_COMP] = MP_QSTR__lt_listcomp_gt_,
+    [SCOPE_DICT_COMP] = MP_QSTR__lt_dictcomp_gt_,
+    [SCOPE_SET_COMP] = MP_QSTR__lt_setcomp_gt_,
+    [SCOPE_GEN_EXPR] = MP_QSTR__lt_genexpr_gt_,
+    _Static_assert((MP_QSTR__lt_module_gt_ <= 
+# 47 "../py/scope.c"
+   ), "MP_QSTR__lt_module_gt_ <= UINT8_MAX");
+    _Static_assert((MP_QSTR__lt_lambda_gt_ <= 
+# 48 "../py/scope.c"
+   ), "MP_QSTR__lt_lambda_gt_ <= UINT8_MAX");
+    _Static_assert((MP_QSTR__lt_listcomp_gt_ <= 
+# 49 "../py/scope.c"
+   ), "MP_QSTR__lt_listcomp_gt_ <= UINT8_MAX");
+    _Static_assert((MP_QSTR__lt_dictcomp_gt_ <= 
+# 50 "../py/scope.c"
+   ), "MP_QSTR__lt_dictcomp_gt_ <= UINT8_MAX");
+    _Static_assert((MP_QSTR__lt_setcomp_gt_ <= 
+# 51 "../py/scope.c"
+   ), "MP_QSTR__lt_setcomp_gt_ <= UINT8_MAX");
+    _Static_assert((MP_QSTR__lt_genexpr_gt_ <= 
+# 52 "../py/scope.c"
+   ), "MP_QSTR__lt_genexpr_gt_ <= UINT8_MAX");
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 838 "../py/compile.c"
+    if ((((uintptr_t)(name_nodes[0])) >> 4) != MP_QSTR_micropython) {
+# 845 "../py/compile.c"
+    if (attr == MP_QSTR_bytecode) {
+    } else if (attr == MP_QSTR_native) {
+    } else if (attr == MP_QSTR_viper) {
+    } else if (attr == MP_QSTR_asm_thumb) {
+    } else if (attr == MP_QSTR_asm_xtensa) {
+    } else if (attr == MP_QSTR_asm_rv32) {
+# 1097 "../py/compile.c"
+        *q_base = MP_QSTR_;
+        (comp->emit_method_table->import(comp->emit, MP_QSTR_, (0)));
+# 1179 "../py/compile.c"
+        (comp->emit_method_table->load_const_str(comp->emit, MP_QSTR__star_));
+        (comp->emit_method_table->import(comp->emit, MP_QSTRnull, (2)));
+# 1311 "../py/compile.c"
+    (comp->emit_method_table->load_id.global(comp->emit, MP_QSTR_AssertionError, (1)));
+# 1477 "../py/compile.c"
+            && (((uintptr_t)(pns_it->nodes[0])) >> 4) == MP_QSTR_range
+# 1791 "../py/compile.c"
+    (comp->emit_method_table->load_method(comp->emit, MP_QSTR___aiter__, 
+# 1808 "../py/compile.c"
+    compile_await_object_method(comp, MP_QSTR___anext__);
+# 1828 "../py/compile.c"
+    (comp->emit_method_table->load_id.global(comp->emit, MP_QSTR_StopAsyncIteration, (1)));
+# 1837 "../py/compile.c"
+            compile_await_object_method(comp, MP_QSTR___aenter__);
+            compile_await_object_method(comp, MP_QSTR___aenter__);
+# 1909 "../py/compile.c"
+        (comp->emit_method_table->load_method(comp->emit, MP_QSTR___aexit__, 
+# 1916 "../py/compile.c"
+        (comp->emit_method_table->attr(comp->emit, MP_QSTR___class__, (0)));
+# 1932 "../py/compile.c"
+        (comp->emit_method_table->load_method(comp->emit, MP_QSTR___aexit__, 
+# 1999 "../py/compile.c"
+            compile_load_id(comp, MP_QSTR___repl_print__);
+# 2294 "../py/compile.c"
+        && (((uintptr_t)(pns->nodes[0])) >> 4) == MP_QSTR_super
+        compile_load_id(comp, MP_QSTR___class__);
+# 2842 "../py/compile.c"
+    qstr param_name = MP_QSTRnull;
+# 2928 "../py/compile.c"
+    if (param_name != MP_QSTRnull) {
+# 3125 "../py/compile.c"
+        qstr qstr_arg = MP_QSTR_;
+# 3174 "../py/compile.c"
+            scope_find_or_add_id(scope, MP_QSTR___class__, ID_INFO_KIND_LOCAL);
+        compile_load_id(comp, MP_QSTR___name__);
+        compile_store_id(comp, MP_QSTR___module__);
+        compile_store_id(comp, MP_QSTR___qualname__);
+        id_info_t *id = scope_find(scope, MP_QSTR___class__);
+# 3192 "../py/compile.c"
+            (comp->emit_method_table->load_id.local(comp->emit, MP_QSTR___class__, id->local_num, (0)));
+# 3228 "../py/compile.c"
+                case MP_QSTR_object:
+                case MP_QSTR_bool:
+                case MP_QSTR_int:
+                case MP_QSTR_uint:
+# 3276 "../py/compile.c"
+        if (op == MP_QSTR_label) {
+        } else if (op == MP_QSTR_align) {
+        } else if (op == MP_QSTR_data) {
+# 3402 "../py/compile.c"
+        if (scope->kind == SCOPE_CLASS && id->qst == MP_QSTR___class__) {
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 336 "../py/emitbc.c"
+            qstr qst = MP_QSTR__star_;
+# 653 "../py/emitbc.c"
+    mp_emit_bc_load_global(emit, MP_QSTR_BaseException, (1));
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 183 "../py/emitnative.c"
+            return MP_QSTR_object;
+            return MP_QSTR_bool;
+            return MP_QSTR_int;
+            return MP_QSTR_uint;
+            return MP_QSTR_ptr;
+            return MP_QSTR_ptr8;
+            return MP_QSTR_ptr16;
+            return MP_QSTR_ptr32;
+            return MP_QSTR_None;
+# 688 "../py/emitnative.c"
+            qstr qst = MP_QSTR__star_;
+# 2118 "../py/emitnative.c"
+    emit_call_with_qstr_arg(emit, MP_F_LOAD_METHOD, MP_QSTR___exit__, (6));
+    emit_call_with_qstr_arg(emit, MP_F_LOAD_METHOD, MP_QSTR___enter__, (6));
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 183 "../py/emitnative.c"
+            return MP_QSTR_object;
+            return MP_QSTR_bool;
+            return MP_QSTR_int;
+            return MP_QSTR_uint;
+            return MP_QSTR_ptr;
+            return MP_QSTR_ptr8;
+            return MP_QSTR_ptr16;
+            return MP_QSTR_ptr32;
+            return MP_QSTR_None;
+# 688 "../py/emitnative.c"
+            qstr qst = MP_QSTR__star_;
+# 2118 "../py/emitnative.c"
+    emit_call_with_qstr_arg(emit, MP_F_LOAD_METHOD, MP_QSTR___exit__, (1));
+    emit_call_with_qstr_arg(emit, MP_F_LOAD_METHOD, MP_QSTR___enter__, (1));
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 183 "../py/emitnative.c"
+            return MP_QSTR_object;
+            return MP_QSTR_bool;
+            return MP_QSTR_int;
+            return MP_QSTR_uint;
+            return MP_QSTR_ptr;
+            return MP_QSTR_ptr8;
+            return MP_QSTR_ptr16;
+            return MP_QSTR_ptr32;
+            return MP_QSTR_None;
+# 688 "../py/emitnative.c"
+            qstr qst = MP_QSTR__star_;
+# 2118 "../py/emitnative.c"
+    emit_call_with_qstr_arg(emit, MP_F_LOAD_METHOD, MP_QSTR___exit__, (1));
+    emit_call_with_qstr_arg(emit, MP_F_LOAD_METHOD, MP_QSTR___enter__, (1));
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 346 "../py/emitinlinethumb.c"
+    { ((0x6800) | (0x0000)), MP_QSTR_ldr },
+    { ((0x6800) | (0x1000)), MP_QSTR_ldrb },
+    { ((0x8800)), MP_QSTR_ldrh },
+    { ((0x6000) | (0x0000)), MP_QSTR_str },
+    { ((0x6000) | (0x1000)), MP_QSTR_strb },
+    { ((0x8000)), MP_QSTR_strh },
+# 442 "../py/emitinlinethumb.c"
+            if (op == MP_QSTR_vcmp) {
+            } else if (op == MP_QSTR_vsqrt) {
+            } else if (op == MP_QSTR_vneg) {
+            } else if (op == MP_QSTR_vcvt_f32_s32) {
+            } else if (op == MP_QSTR_vcvt_s32_f32) {
+            } else if (op == MP_QSTR_vmrs) {
+            } else if (op == MP_QSTR_vmov) {
+            } else if (op == MP_QSTR_vldr) {
+            } else if (op == MP_QSTR_vstr) {
+        if (op == MP_QSTR_nop) {
+        } else if (op == MP_QSTR_wfi) {
+        if (op == MP_QSTR_b) {
+        } else if (op == MP_QSTR_bl) {
+        } else if (op == MP_QSTR_bx) {
+# 579 "../py/emitinlinethumb.c"
+        } else if (op == MP_QSTR_cpsid) {
+        } else if (op == MP_QSTR_cpsie) {
+        } else if (op == MP_QSTR_push) {
+        } else if (op == MP_QSTR_pop) {
+            if (op == MP_QSTR_mov) {
+            } else if (asm_thumb_allow_armv7m(&emit->as) && op == MP_QSTR_clz) {
+            } else if (asm_thumb_allow_armv7m(&emit->as) && op == MP_QSTR_rbit) {
+            } else if (asm_thumb_allow_armv7m(&emit->as) && op == MP_QSTR_mrs) {
+                if (op == MP_QSTR_and_) {
+            if (op == MP_QSTR_mov) {
+            } else if (op == MP_QSTR_cmp) {
+            } else if (op == MP_QSTR_add) {
+            } else if (op == MP_QSTR_sub) {
+            } else if (asm_thumb_allow_armv7m(&emit->as) && op == MP_QSTR_movw) {
+            } else if (asm_thumb_allow_armv7m(&emit->as) && op == MP_QSTR_movt) {
+            } else if (asm_thumb_allow_armv7m(&emit->as) && op == MP_QSTR_movwt) {
+            } else if (asm_thumb_allow_armv7m(&emit->as) && op == MP_QSTR_ldrex) {
+        if (op == MP_QSTR_lsl) {
+        } else if (op == MP_QSTR_lsr) {
+        } else if (op == MP_QSTR_asr) {
+        } else if (op == MP_QSTR_add) {
+        } else if (asm_thumb_allow_armv7m(&emit->as) && op == MP_QSTR_sdiv) {
+        } else if (asm_thumb_allow_armv7m(&emit->as) && op == MP_QSTR_udiv) {
+        } else if (op == MP_QSTR_sub) {
+        } else if (asm_thumb_allow_armv7m(&emit->as) && op == MP_QSTR_strex) {
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 183 "../py/emitnative.c"
+            return MP_QSTR_object;
+            return MP_QSTR_bool;
+            return MP_QSTR_int;
+            return MP_QSTR_uint;
+            return MP_QSTR_ptr;
+            return MP_QSTR_ptr8;
+            return MP_QSTR_ptr16;
+            return MP_QSTR_ptr32;
+            return MP_QSTR_None;
+# 688 "../py/emitnative.c"
+            qstr qst = MP_QSTR__star_;
+# 2118 "../py/emitnative.c"
+    emit_call_with_qstr_arg(emit, MP_F_LOAD_METHOD, MP_QSTR___exit__, (1));
+    emit_call_with_qstr_arg(emit, MP_F_LOAD_METHOD, MP_QSTR___enter__, (1));
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 174 "../py/asmxtensa.c"
+        mp_raise_msg_varg(&mp_type_RuntimeError, (mp_rom_error_text_t)"ERROR: xtensa %q out of range", MP_QSTR_bccz);
+# 198 "../py/asmxtensa.c"
+        mp_raise_msg_varg(&mp_type_RuntimeError, (mp_rom_error_text_t)"ERROR: xtensa %q out of range", MP_QSTR_bcc);
+# 327 "../py/asmxtensa.c"
+        mp_raise_msg_varg(&mp_type_RuntimeError, (mp_rom_error_text_t)"ERROR: xtensa %q out of range", MP_QSTR_bit_branch);
+            mp_raise_msg_varg(&mp_type_RuntimeError, (mp_rom_error_text_t)"ERROR: %q %q not word-aligned", MP_QSTR_call0, MP_QSTR_target);
+            mp_raise_msg_varg(&mp_type_RuntimeError, (mp_rom_error_text_t)"ERROR: %q %q not word-aligned", MP_QSTR_call0, MP_QSTR_location);
+            mp_raise_msg_varg(&mp_type_RuntimeError, (mp_rom_error_text_t)"ERROR: xtensa %q out of range", MP_QSTR_call0);
+            mp_raise_msg_varg(&mp_type_RuntimeError, (mp_rom_error_text_t)"ERROR: %q %q not word-aligned", MP_QSTR_l32r, MP_QSTR_target);
+            mp_raise_msg_varg(&mp_type_RuntimeError, (mp_rom_error_text_t)"ERROR: %q %q not word-aligned", MP_QSTR_l32r, MP_QSTR_location);
+            mp_raise_msg_varg(&mp_type_RuntimeError, (mp_rom_error_text_t)"ERROR: xtensa %q out of range", MP_QSTR_l32r);
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 183 "../py/emitnative.c"
+            return MP_QSTR_object;
+            return MP_QSTR_bool;
+            return MP_QSTR_int;
+            return MP_QSTR_uint;
+            return MP_QSTR_ptr;
+            return MP_QSTR_ptr8;
+            return MP_QSTR_ptr16;
+            return MP_QSTR_ptr32;
+            return MP_QSTR_None;
+# 688 "../py/emitnative.c"
+            qstr qst = MP_QSTR__star_;
+# 2118 "../py/emitnative.c"
+    emit_call_with_qstr_arg(emit, MP_F_LOAD_METHOD, MP_QSTR___exit__, (3));
+    emit_call_with_qstr_arg(emit, MP_F_LOAD_METHOD, MP_QSTR___enter__, (3));
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 135 "../py/emitinlinextensa.c"
+    MP_QSTR_a0, MP_QSTR_a1, MP_QSTR_a2, MP_QSTR_a3, MP_QSTR_a4, MP_QSTR_a5, MP_QSTR_a6, MP_QSTR_a7,
+    MP_QSTR_a8, MP_QSTR_a9, MP_QSTR_a10, MP_QSTR_a11, MP_QSTR_a12, MP_QSTR_a13, MP_QSTR_a14, MP_QSTR_a15
+    MP_QSTR_bnone, MP_QSTR_beq, MP_QSTR_blt, MP_QSTR_bltu, MP_QSTR_ball,
+    MP_QSTR_bbc, MP_QSTR_, MP_QSTR_, MP_QSTR_bany, MP_QSTR_bne,
+    MP_QSTR_bge, MP_QSTR_bgeu, MP_QSTR_bnall, MP_QSTR_bbs,
+# 205 "../py/emitinlinextensa.c"
+    { MP_QSTR_abs_, 2, 6, 0, 0, (1 << 4), 1, (2 << 4), 0, (0) },
+    { MP_QSTR_add, 3, 8, 0, 0, (1 << 4), (2 << 4), (3 << 4), 0, (0) },
+    { MP_QSTR_add_n, 3, 0, 0, 10, (1 << 4), (2 << 4), (3 << 4), 0, (2) },
+    { MP_QSTR_addi, 3, 0, 0, 2, 12, (2 << 4), (1 << 4), 0, (1) },
+    { MP_QSTR_addx2, 3, 9, 0, 0, (1 << 4), (2 << 4), (3 << 4), 0, (0) },
+    { MP_QSTR_addx4, 3, 10, 0, 0, (1 << 4), (2 << 4), (3 << 4), 0, (0) },
+    { MP_QSTR_addx8, 3, 11, 0, 0, (1 << 4), (2 << 4), (3 << 4), 0, (0) },
+    { MP_QSTR_and_, 3, 1, 0, 0, (1 << 4), (2 << 4), (3 << 4), 0, (0) },
+    { MP_QSTR_callx0, 1, 0, 0, 0, 0, (1 << 4), 12, 0, (0) },
+    { MP_QSTR_jx, 1, 0, 0, 0, 0, (1 << 4), 10, 0, (0) },
+    { MP_QSTR_l16si, 3, 0, 0, 2, 9, (2 << 4), (1 << 4), 3, (1) },
+    { MP_QSTR_l16ui, 3, 0, 0, 2, 1, (2 << 4), (1 << 4), 3, (1) },
+    { MP_QSTR_l32i, 3, 0, 0, 2, 2, (2 << 4), (1 << 4), 5, (1) },
+    { MP_QSTR_l8ui, 3, 0, 0, 2, 0, (2 << 4), (1 << 4), 1, (1) },
+    { MP_QSTR_mov, 2, 0, 0, 13, 0, (2 << 4), (1 << 4), 0, (2) },
+    { MP_QSTR_mov_n, 2, 0, 0, 13, 0, (2 << 4), (1 << 4), 0, (2) },
+    { MP_QSTR_mull, 3, 8, 2, 0, (1 << 4), (2 << 4), (3 << 4), 0, (0) },
+    { MP_QSTR_neg, 2, 6, 0, 0, (1 << 4), 0, (2 << 4), 0, (0) },
+    { MP_QSTR_nop, 0, 0, 0, 0, 2, 0, 15, 0, (0) },
+    { MP_QSTR_nop_n, 0, 0, 0, 13, 15, 0, 3, 0, (2) },
+    { MP_QSTR_nsa, 2, 4, 0, 0, 14, (2 << 4), (1 << 4), 0, (0) },
+    { MP_QSTR_nsau, 2, 4, 0, 0, 15, (2 << 4), (1 << 4), 0, (0) },
+    { MP_QSTR_or_, 3, 2, 0, 0, (1 << 4), (2 << 4), (3 << 4), 0, (0) },
+    { MP_QSTR_ret, 0, 0, 0, 13, 15, 0, 0, 0, (2) },
+    { MP_QSTR_ret_n, 0, 0, 0, 13, 15, 0, 0, 0, (2) },
+    { MP_QSTR_s16i, 3, 0, 0, 2, 5, (2 << 4), (1 << 4), 3, (1) },
+    { MP_QSTR_s32i, 3, 0, 0, 2, 6, (2 << 4), (1 << 4), 5, (1) },
+    { MP_QSTR_s8i, 3, 0, 0, 2, 4, (2 << 4), (1 << 4), 1, (1) },
+    { MP_QSTR_sll, 2, 10, 1, 0, (1 << 4), (2 << 4), 0, 0, (0) },
+    { MP_QSTR_sra, 2, 11, 1, 0, (1 << 4), 0, (2 << 4), 0, (0) },
+    { MP_QSTR_src, 3, 8, 1, 0, (1 << 4), (2 << 4), (3 << 4), 0, (0) },
+    { MP_QSTR_srl, 2, 9, 1, 0, (1 << 4), 0, (2 << 4), 0, (0) },
+    { MP_QSTR_ssa8b, 1, 4, 0, 0, 3, (1 << 4), 0, 0, (0) },
+    { MP_QSTR_ssa8l, 1, 4, 0, 0, 2, (1 << 4), 0, 0, (0) },
+    { MP_QSTR_ssl, 1, 4, 0, 0, 1, (1 << 4), 0, 0, (0) },
+    { MP_QSTR_ssr, 1, 4, 0, 0, 0, (1 << 4), 0, 0, (0) },
+    { MP_QSTR_sub, 3, 12, 0, 0, (1 << 4), (2 << 4), (3 << 4), 0, (0) },
+    { MP_QSTR_subx2, 3, 13, 0, 0, (1 << 4), (2 << 4), (3 << 4), 0, (0) },
+    { MP_QSTR_subx4, 3, 14, 0, 0, (1 << 4), (2 << 4), (3 << 4), 0, (0) },
+    { MP_QSTR_subx8, 3, 15, 0, 0, (1 << 4), (2 << 4), (3 << 4), 0, (0) },
+    { MP_QSTR_xor, 3, 3, 0, 0, (1 << 4), (2 << 4), (3 << 4), 0, (0) },
+# 272 "../py/emitinlinextensa.c"
+    MP_QSTR_beqz, MP_QSTR_bnez, MP_QSTR_bltz, MP_QSTR_bgez,
+    MP_QSTR_beqz_n, MP_QSTR_bnez_n
+# 319 "../py/emitinlinextensa.c"
+        if (op == MP_QSTR_j) {
+        } else if (op == MP_QSTR_ssai) {
+        } else if (op == MP_QSTR_call0) {
+        if (op == MP_QSTR_movi) {
+        } else if (op == MP_QSTR_l32r) {
+        } else if (op == MP_QSTR_movi_n) {
+# 384 "../py/emitinlinextensa.c"
+        if (op == MP_QSTR_addi_n) {
+        } else if (op == MP_QSTR_addmi) {
+        } else if (op == MP_QSTR_bbci) {
+        } else if (op == MP_QSTR_bbsi) {
+        } else if (op == MP_QSTR_slli) {
+        } else if (op == MP_QSTR_srai) {
+        } else if (op == MP_QSTR_srli) {
+        } else if (op == MP_QSTR_l32i_n) {
+        } else if (op == MP_QSTR_s32i_n) {
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 183 "../py/emitnative.c"
+            return MP_QSTR_object;
+            return MP_QSTR_bool;
+            return MP_QSTR_int;
+            return MP_QSTR_uint;
+            return MP_QSTR_ptr;
+            return MP_QSTR_ptr8;
+            return MP_QSTR_ptr16;
+            return MP_QSTR_ptr32;
+            return MP_QSTR_None;
+# 688 "../py/emitnative.c"
+            qstr qst = MP_QSTR__star_;
+# 2118 "../py/emitnative.c"
+    emit_call_with_qstr_arg(emit, MP_F_LOAD_METHOD, MP_QSTR___exit__, (11));
+    emit_call_with_qstr_arg(emit, MP_F_LOAD_METHOD, MP_QSTR___enter__, (11));
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 183 "../py/emitnative.c"
+            return MP_QSTR_object;
+            return MP_QSTR_bool;
+            return MP_QSTR_int;
+            return MP_QSTR_uint;
+            return MP_QSTR_ptr;
+            return MP_QSTR_ptr8;
+            return MP_QSTR_ptr16;
+            return MP_QSTR_ptr32;
+            return MP_QSTR_None;
+# 688 "../py/emitnative.c"
+            qstr qst = MP_QSTR__star_;
+# 2118 "../py/emitnative.c"
+    emit_call_with_qstr_arg(emit, MP_F_LOAD_METHOD, MP_QSTR___exit__, ((11)));
+    emit_call_with_qstr_arg(emit, MP_F_LOAD_METHOD, MP_QSTR___enter__, ((11)));
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 53 "../py/emitinlinerv32.c" 2
+    MP_QSTR_zero, MP_QSTR_ra, MP_QSTR_sp, MP_QSTR_gp, MP_QSTR_tp, MP_QSTR_t0, MP_QSTR_t1, MP_QSTR_t2,
+    MP_QSTR_s0, MP_QSTR_s1, MP_QSTR_a0, MP_QSTR_a1, MP_QSTR_a2, MP_QSTR_a3, MP_QSTR_a4, MP_QSTR_a5,
+    MP_QSTR_a6, MP_QSTR_a7, MP_QSTR_s2, MP_QSTR_s3, MP_QSTR_s4, MP_QSTR_s5, MP_QSTR_s6, MP_QSTR_s7,
+    MP_QSTR_s8, MP_QSTR_s9, MP_QSTR_s10, MP_QSTR_s11, MP_QSTR_t3, MP_QSTR_t4, MP_QSTR_t5, MP_QSTR_t6,
+    MP_QSTR_x0, MP_QSTR_x1, MP_QSTR_x2, MP_QSTR_x3, MP_QSTR_x4, MP_QSTR_x5, MP_QSTR_x6, MP_QSTR_x7,
+    MP_QSTR_x8, MP_QSTR_x9, MP_QSTR_x10, MP_QSTR_x11, MP_QSTR_x12, MP_QSTR_x13, MP_QSTR_x14, MP_QSTR_x15,
+    MP_QSTR_x16, MP_QSTR_x17, MP_QSTR_x18, MP_QSTR_x19, MP_QSTR_x20, MP_QSTR_x21, MP_QSTR_x22, MP_QSTR_x23,
+    MP_QSTR_x24, MP_QSTR_x25, MP_QSTR_x26, MP_QSTR_x27, MP_QSTR_x28, MP_QSTR_x29, MP_QSTR_x30, MP_QSTR_x31,
+# 261 "../py/emitinlinerv32.c"
+    { MP_QSTR_add, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_add },
+    { MP_QSTR_addi, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_00000FFF, 3, CALL_RRI, 1, 0, 1, 0, 2, 0, RV32_EXT_NONE, asm_rv32_opcode_addi },
+    { MP_QSTR_and_, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_and },
+    { MP_QSTR_andi, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_00000FFF, 3, CALL_RRI, 1, 0, 1, 0, 2, 0, RV32_EXT_NONE, asm_rv32_opcode_andi },
+    { MP_QSTR_auipc, MASK_FFFFFFFF, MASK_FFFFF000, 0, 2, CALL_RI, 1, 0, 2, 12, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_auipc },
+    { MP_QSTR_beq, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_00001FFE, 3, CALL_RRL, 1, 0, 1, 0, 3, 0, RV32_EXT_NONE, asm_rv32_opcode_beq },
+    { MP_QSTR_bge, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_00001FFE, 3, CALL_RRL, 1, 0, 1, 0, 3, 0, RV32_EXT_NONE, asm_rv32_opcode_bge },
+    { MP_QSTR_bgeu, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_00001FFE, 3, CALL_RRL, 1, 0, 1, 0, 3, 0, RV32_EXT_NONE, asm_rv32_opcode_bgeu },
+    { MP_QSTR_blt, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_00001FFE, 3, CALL_RRL, 1, 0, 1, 0, 3, 0, RV32_EXT_NONE, asm_rv32_opcode_blt },
+    { MP_QSTR_bltu, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_00001FFE, 3, CALL_RRL, 1, 0, 1, 0, 3, 0, RV32_EXT_NONE, asm_rv32_opcode_bltu },
+    { MP_QSTR_bne, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_00001FFE, 3, CALL_RRL, 1, 0, 1, 0, 3, 0, RV32_EXT_NONE, asm_rv32_opcode_bne },
+    { MP_QSTR_csrrc, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_00000FFF, 3, CALL_RRI, 1, 0, 1, 0, (2 | (1 << 2)), 0, RV32_EXT_NONE, asm_rv32_opcode_csrrc },
+    { MP_QSTR_csrrs, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_00000FFF, 3, CALL_RRI, 1, 0, 1, 0, (2 | (1 << 2)), 0, RV32_EXT_NONE, asm_rv32_opcode_csrrs },
+    { MP_QSTR_csrrw, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_00000FFF, 3, CALL_RRI, 1, 0, 1, 0, (2 | (1 << 2)), 0, RV32_EXT_NONE, asm_rv32_opcode_csrrw },
+    { MP_QSTR_csrrci, MASK_FFFFFFFF, MASK_00000FFF, MASK_0000001F, 3, CALL_RII, 1, 0, (2 | (1 << 2)), 0, (2 | (1 << 2)), 0, RV32_EXT_NONE, asm_rv32_opcode_csrrci },
+    { MP_QSTR_csrrsi, MASK_FFFFFFFF, MASK_00000FFF, MASK_0000001F, 3, CALL_RII, 1, 0, (2 | (1 << 2)), 0, (2 | (1 << 2)), 0, RV32_EXT_NONE, asm_rv32_opcode_csrrsi },
+    { MP_QSTR_csrrwi, MASK_FFFFFFFF, MASK_00000FFF, MASK_0000001F, 3, CALL_RII, 1, 0, (2 | (1 << 2)), 0, (2 | (1 << 2)), 0, RV32_EXT_NONE, asm_rv32_opcode_csrrwi },
+    { MP_QSTR_c_add, MASK_FFFFFFFE, MASK_FFFFFFFE, 0, 2, CALL_RR, 1, 0, 1, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_cadd },
+    { MP_QSTR_c_addi, MASK_FFFFFFFE, MASK_0000003F, 0, 2, CALL_RI, 1, 0, (2 | (1 << 3)), 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_caddi },
+    { MP_QSTR_c_addi4spn, MASK_0000FF00, MASK_000003FC, 0, 2, CALL_RI, 1, 0, (2 | (1 << 2) | (1 << 3)), 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_caddi4spn },
+    { MP_QSTR_c_and, MASK_0000FF00, MASK_0000FF00, 0, 2, CALL_RR, (1 | (1 << 2)), 0, (1 | (1 << 2)), 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_cand },
+    { MP_QSTR_c_andi, MASK_0000FF00, MASK_0000003F, 0, 2, CALL_RI, (1 | (1 << 2)), 0, 2, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_candi },
+    { MP_QSTR_c_beqz, MASK_0000FF00, MASK_000001FE, 0, 2, CALL_RL, (1 | (1 << 2)), 0, 3, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_cbeqz },
+    { MP_QSTR_c_bnez, MASK_0000FF00, MASK_000001FE, 0, 2, CALL_RL, (1 | (1 << 2)), 0, 3, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_cbnez },
+    { MP_QSTR_c_ebreak, 0, 0, 0, 0, CALL_N, 0, 0, 0, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_cebreak },
+    { MP_QSTR_c_j, MASK_00000FFE, 0, 0, 1, CALL_L, 3, 0, 0, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_cj },
+    { MP_QSTR_c_jal, MASK_00000FFE, 0, 0, 1, CALL_L, 3, 0, 0, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_cjal },
+    { MP_QSTR_c_jalr, MASK_FFFFFFFE, 0, 0, 1, CALL_R, 1, 0, 0, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_cjalr },
+    { MP_QSTR_c_jr, MASK_FFFFFFFE, 0, 0, 1, CALL_R, 1, 0, 0, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_cjr },
+    { MP_QSTR_c_li, MASK_FFFFFFFE, MASK_0000003F, 0, 2, CALL_RI, 1, 0, 2, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_cli },
+    { MP_QSTR_c_lui, MASK_FFFFFFFA, MASK_0001F800, 0, 2, CALL_RI, 1, 0, (2 | (1 << 2) | (1 << 3)), 12, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_clui },
+    { MP_QSTR_c_lw, MASK_0000FF00, MASK_0000007C, MASK_0000FF00, 2, CALL_RIR, (1 | (1 << 2)), 0, 2, 0, (1 | (1 << 2)), 0, RV32_EXT_NONE, asm_rv32_opcode_clw },
+    { MP_QSTR_c_lwsp, MASK_FFFFFFFE, MASK_000000FC, 0, 2, CALL_RI, 1, 0, 2, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_clwsp },
+    { MP_QSTR_c_mv, MASK_FFFFFFFE, MASK_FFFFFFFE, 0, 2, CALL_RR, 1, 0, 1, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_cmv },
+    { MP_QSTR_c_nop, 0, 0, 0, 0, CALL_N, 0, 0, 0, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_cnop },
+    { MP_QSTR_c_or, MASK_0000FF00, MASK_0000FF00, 0, 2, CALL_RR, (1 | (1 << 2)), 0, (1 | (1 << 2)), 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_cor },
+    { MP_QSTR_c_slli, MASK_FFFFFFFE, MASK_0000001F, 0, 2, CALL_RI, 1, 0, (2 | (1 << 2)), 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_cslli },
+    { MP_QSTR_c_srai, MASK_0000FF00, MASK_0000001F, 0, 2, CALL_RI, (1 | (1 << 2)), 0, (2 | (1 << 2)), 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_csrai },
+    { MP_QSTR_c_srli, MASK_0000FF00, MASK_0000001F, 0, 2, CALL_RI, (1 | (1 << 2)), 0, (2 | (1 << 2)), 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_csrli },
+    { MP_QSTR_c_sub, MASK_0000FF00, MASK_0000FF00, 0, 2, CALL_RR, (1 | (1 << 2)), 0, (1 | (1 << 2)), 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_csub },
+    { MP_QSTR_c_sw, MASK_0000FF00, MASK_0000007C, MASK_0000FF00, 2, CALL_RIR, (1 | (1 << 2)), 0, 2, 0, (1 | (1 << 2)), 0, RV32_EXT_NONE, asm_rv32_opcode_csw },
+    { MP_QSTR_c_swsp, MASK_FFFFFFFF, MASK_000000FC, 0, 2, CALL_RI, 1, 0, 2, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_cswsp },
+    { MP_QSTR_c_xor, MASK_0000FF00, MASK_0000FF00, 0, 2, CALL_RR, (1 | (1 << 2)), 0, (1 | (1 << 2)), 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_cxor },
+    { MP_QSTR_div, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_div },
+    { MP_QSTR_divu, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_divu },
+    { MP_QSTR_ebreak, 0, 0, 0, 0, CALL_N, 0, 0, 0, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_ebreak },
+    { MP_QSTR_ecall, 0, 0, 0, 0, CALL_N, 0, 0, 0, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_ecall },
+    { MP_QSTR_jal, MASK_FFFFFFFF, MASK_001FFFFE, 0, 2, CALL_RL, 1, 0, 3, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_jal },
+    { MP_QSTR_jalr, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_00000FFF, 3, CALL_RRI, 1, 0, 1, 0, 2, 0, RV32_EXT_NONE, asm_rv32_opcode_jalr },
+    { MP_QSTR_la, MASK_FFFFFFFF, MASK_FFFFFFFF, 0, 2, CALL_RL, 1, 0, 3, 0, 0, 0, RV32_EXT_NONE, opcode_la },
+    { MP_QSTR_lb, MASK_FFFFFFFF, MASK_00000FFF, MASK_FFFFFFFF, 2, CALL_RIR, 1, 0, 2, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_lb },
+    { MP_QSTR_lbu, MASK_FFFFFFFF, MASK_00000FFF, MASK_FFFFFFFF, 2, CALL_RIR, 1, 0, 2, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_lbu },
+    { MP_QSTR_lh, MASK_FFFFFFFF, MASK_00000FFF, MASK_FFFFFFFF, 2, CALL_RIR, 1, 0, 2, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_lh },
+    { MP_QSTR_lhu, MASK_FFFFFFFF, MASK_00000FFF, MASK_FFFFFFFF, 2, CALL_RIR, 1, 0, 2, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_lhu },
+    { MP_QSTR_li, MASK_FFFFFFFF, MASK_FFFFFFFF, 0, 2, CALL_RI, 1, 0, 2, 0, 0, 0, RV32_EXT_NONE, asm_rv32_emit_optimised_load_immediate },
+    { MP_QSTR_lui, MASK_FFFFFFFF, MASK_FFFFF000, 0, 2, CALL_RI, 1, 0, 2, 12, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_lui },
+    { MP_QSTR_lw, MASK_FFFFFFFF, MASK_00000FFF, MASK_FFFFFFFF, 2, CALL_RIR, 1, 0, 2, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_lw },
+    { MP_QSTR_mv, MASK_FFFFFFFF, MASK_FFFFFFFF, 0, 2, CALL_RR, 1, 0, 1, 0, 0, 0, RV32_EXT_NONE, asm_rv32_opcode_cmv },
+    { MP_QSTR_mul, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_mul },
+    { MP_QSTR_mulh, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_mulh },
+    { MP_QSTR_mulhsu, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_mulhsu },
+    { MP_QSTR_mulhu, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_mulhu },
+    { MP_QSTR_or_, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_or },
+    { MP_QSTR_ori, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_00000FFF, 3, CALL_RRI, 1, 0, 1, 0, 2, 0, RV32_EXT_NONE, asm_rv32_opcode_ori },
+    { MP_QSTR_rem, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_rem },
+    { MP_QSTR_remu, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_remu },
+    { MP_QSTR_sb, MASK_FFFFFFFF, MASK_00000FFF, MASK_FFFFFFFF, 2, CALL_RIR, 1, 0, 2, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_sb },
+    { MP_QSTR_sh, MASK_FFFFFFFF, MASK_00000FFF, MASK_FFFFFFFF, 2, CALL_RIR, 1, 0, 2, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_sh },
+    { MP_QSTR_sh1add, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_ZBA, asm_rv32_opcode_sh1add },
+    { MP_QSTR_sh2add, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_ZBA, asm_rv32_opcode_sh2add },
+    { MP_QSTR_sh3add, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_ZBA, asm_rv32_opcode_sh3add },
+    { MP_QSTR_sll, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_sll },
+    { MP_QSTR_slli, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_0000001F, 3, CALL_RRI, 1, 0, 1, 0, (2 | (1 << 2)), 0, RV32_EXT_NONE, asm_rv32_opcode_slli },
+    { MP_QSTR_slt, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_slt },
+    { MP_QSTR_slti, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_00000FFF, 3, CALL_RRI, 1, 0, 1, 0, 2, 0, RV32_EXT_NONE, asm_rv32_opcode_slti },
+    { MP_QSTR_sltiu, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_00000FFF, 3, CALL_RRI, 1, 0, 1, 0, 2, 0, RV32_EXT_NONE, asm_rv32_opcode_sltiu },
+    { MP_QSTR_sltu, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_sltu },
+    { MP_QSTR_sra, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_sra },
+    { MP_QSTR_srai, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_0000001F, 3, CALL_RRI, 1, 0, 1, 0, (2 | (1 << 2)), 0, RV32_EXT_NONE, asm_rv32_opcode_srai },
+    { MP_QSTR_srl, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_srl },
+    { MP_QSTR_srli, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_0000001F, 3, CALL_RRI, 1, 0, 1, 0, (2 | (1 << 2)), 0, RV32_EXT_NONE, asm_rv32_opcode_srli },
+    { MP_QSTR_sub, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_sub },
+    { MP_QSTR_sw, MASK_FFFFFFFF, MASK_00000FFF, MASK_FFFFFFFF, 2, CALL_RIR, 1, 0, 2, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_sw },
+    { MP_QSTR_xor, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_FFFFFFFF, 3, CALL_RRR, 1, 0, 1, 0, 1, 0, RV32_EXT_NONE, asm_rv32_opcode_xor },
+    { MP_QSTR_xori, MASK_FFFFFFFF, MASK_FFFFFFFF, MASK_00000FFF, 3, CALL_RRI, 1, 0, 1, 0, 2, 0, RV32_EXT_NONE, asm_rv32_opcode_xori },
+# 481 "../py/emitinlinerv32.c"
+                        (mp_rom_error_text_t)"opcode '%q' argument %d: expecting %q", opcode->qstring, node_index + 1, MP_QSTR_register));
+# 493 "../py/emitinlinerv32.c"
+                        (mp_rom_error_text_t)"opcode '%q' argument %d: expecting %q", opcode->qstring, node_index + 1, MP_QSTR_integer));
+# 506 "../py/emitinlinerv32.c"
+                        (mp_rom_error_text_t)"opcode '%q' argument %d: expecting %q", opcode->qstring, node_index + 1, MP_QSTR_label));
+# 594 "../py/emitinlinerv32.c"
+                mp_obj_new_exception_msg_varg(&mp_type_SyntaxError, (mp_rom_error_text_t)"opcode '%q' argument %d: expecting %q", opcode_data->qstring, 2, MP_QSTR_integer));
+# 634 "../py/emitinlinerv32.c"
+            (mp_rom_error_text_t)"opcode '%q' argument %d: expecting %q", opcode_data->qstring, node_index + 1, MP_QSTR_offset));
+# 790 "../py/emitinlinerv32.c"
+    MP_QSTR_cm_push, MP_QSTR_cm_pop, MP_QSTR_cm_popret,
+    MP_QSTR_cm_popretz, MP_QSTR_cm_mva01s, MP_QSTR_cm_mvsa01,
+# 807 "../py/emitinlinerv32.c"
+        if (opcode == MP_QSTR_cm_mva01s || opcode == MP_QSTR_cm_mvsa01) {
+# 848 "../py/emitinlinerv32.c"
+                    (mp_rom_error_text_t)"opcode '%q' argument %d: expecting %q", opcode, 2, MP_QSTR_integer));
+# 856 "../py/emitinlinerv32.c"
+            ((opcode == MP_QSTR_cm_push) && stack_adjustment > 0) ||
+            ((opcode != MP_QSTR_cm_push) && stack_adjustment < 0)) {
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 183 "../py/emitnative.c"
+            return MP_QSTR_object;
+            return MP_QSTR_bool;
+            return MP_QSTR_int;
+            return MP_QSTR_uint;
+            return MP_QSTR_ptr;
+            return MP_QSTR_ptr8;
+            return MP_QSTR_ptr16;
+            return MP_QSTR_ptr32;
+            return MP_QSTR_None;
+# 448 "../py/emitnative.c"
+                                         || current_scope->parent->simple_name == MP_QSTR__lt_module_gt_) {
+# 688 "../py/emitnative.c"
+            qstr qst = MP_QSTR__star_;
+# 2118 "../py/emitnative.c"
+    emit_call_with_qstr_arg(emit, MP_F_LOAD_METHOD, MP_QSTR___exit__, ASM_DEBUG_REG_R02);
+    emit_call_with_qstr_arg(emit, MP_F_LOAD_METHOD, MP_QSTR___enter__, ASM_DEBUG_REG_R02);
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 43 "../py/parsenum.c"
+        mp_obj_exception_add_traceback(exc, lex->source_name, lex->tok_line, MP_QSTRnull);
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 557 "../py/persistentcode.c"
+    if (qst <= MP_QSTR_zip) {
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 62 "../py/runtime.c"
+MP_REGISTER_MODULE(MP_QSTR___main__, mp_module___main__);
+# 104 "../py/runtime.c"
+    mp_obj_dict_store(((mp_obj_t)(&(mp_state_ctx.vm.dict_main))), ((mp_obj_t)((((mp_uint_t)(MP_QSTR___name__)) << 3) | 2)), ((mp_obj_t)((((mp_uint_t)(MP_QSTR___main__)) << 3) | 2)));
+# 880 "../py/runtime.c"
+                mp_load_method(kw_value, MP_QSTR_keys, dest);
+# 900 "../py/runtime.c"
+                    mp_load_method(kw_value, MP_QSTR___getitem__, dest);
+# 1034 "../py/runtime.c"
+static const mp_obj_type_t mp_type_checked_fun = { .base = { &mp_type_type }, .flags = (0x0020), .name = MP_QSTR_function, .slot_index_call = 1, .slots = { (const void *)(mp_call_fun_t) checked_fun_call } }
+# 1120 "../py/runtime.c"
+    if (attr == MP_QSTR___class__) {
+    if (attr == MP_QSTR___next__ && (type->flags & ((0x0080) | (0x0100) | ((0x0080) | (0x0100))))) {
+# 1313 "../py/runtime.c"
+    mp_load_method_maybe(o_in, MP_QSTR___getitem__, dest);
+# 1360 "../py/runtime.c"
+        mp_load_method_maybe(o_in, MP_QSTR___next__, dest);
+        mp_load_method_maybe(o_in, MP_QSTR___next__, dest);
+# 1427 "../py/runtime.c"
+        mp_load_method_maybe(self_in, MP_QSTR___next__, dest);
+        mp_load_method(self_in, MP_QSTR_send, dest);
+# 1471 "../py/runtime.c"
+            mp_load_method_maybe(self_in, MP_QSTR_close, dest);
+            mp_load_method_maybe(self_in, MP_QSTR_throw, dest);
+# 1548 "../py/runtime.c"
+    mp_load_method_maybe(module, MP_QSTR___path__, dest);
+    mp_load_method_maybe(module, MP_QSTR___name__, dest);
+# 1624 "../py/runtime.c"
+    mp_load_method(module, MP_QSTR___dict__, dest);
+# 1755 "../py/runtime.c"
+    mp_raise_type_arg(&mp_type_RuntimeError, ((mp_obj_t)((((mp_uint_t)(MP_QSTR_maximum_space_recursion_space_depth_space_exceeded)) << 3) | 2)));
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 46 "../py/nativeglue.c"
+        case MP_QSTR_object:
+        case MP_QSTR_bool:
+        case MP_QSTR_int:
+        case MP_QSTR_uint:
+        case MP_QSTR_ptr:
+        case MP_QSTR_ptr8:
+        case MP_QSTR_ptr16:
+        case MP_QSTR_ptr32:
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 145 "../py/obj.c"
+                if (block == MP_QSTRnull) {
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 631 "../py/objarray.c"
+const mp_obj_type_t mp_type_bytearray = { .base = { &mp_type_type }, .flags = (0x0008) | (0x0000) | (0x0400), .name = MP_QSTR_bytearray, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_iter = 3, .slot_index_unary_op = 4, .slot_index_binary_op = 5, .slot_index_subscr = 6, .slot_index_buffer = 7, .slot_index_locals_dict = 8, .slots = { (const void *)(mp_make_new_fun_t) bytearray_make_new, (const void *)(mp_print_fun_t) array_print, (const void *)(const void *) array_iterator_new, (const void *)(mp_unary_op_fun_t) array_unary_op, (const void *)(mp_binary_op_fun_t) array_binary_op, (const void *)(mp_subscr_fun_t) array_subscr, (const void *)(mp_buffer_fun_t) array_get_buffer, (const void *)(struct _mp_obj_dict_t *) &mp_obj_bytearray_locals_dict } }
+# 681 "../py/objarray.c"
+static const mp_obj_type_t mp_type_array_it = { .base = { &mp_type_type }, .flags = (0x0080), .name = MP_QSTR_iterator, .slot_index_iter = 1, .slots = { (const void *)(const void *) array_it_iternext } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 83 "../py/objbool.c"
+const mp_obj_type_t mp_type_bool = { .base = { &mp_type_type }, .flags = (0x0008), .name = MP_QSTR_bool, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_unary_op = 3, .slot_index_binary_op = 4, .slots = { (const void *)(mp_make_new_fun_t) bool_make_new, (const void *)(mp_print_fun_t) bool_print, (const void *)(mp_unary_op_fun_t) bool_unary_op, (const void *)(mp_binary_op_fun_t) bool_binary_op } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 136 "../py/objboundmeth.c"
+const mp_obj_type_t mp_type_bound_meth = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_bound_method, .slot_index_print = 1, .slot_index_call = 2, .slot_index_unary_op = 3, .slot_index_binary_op = 4, .slots = { (const void *)(mp_print_fun_t) bound_meth_print, (const void *)(mp_call_fun_t) bound_meth_call, (const void *)(mp_unary_op_fun_t) bound_meth_unary_op, (const void *)(mp_binary_op_fun_t) bound_meth_binary_op } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 49 "../py/objcell.c"
+static const mp_obj_type_t mp_type_cell = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_, .slot_index_print = 1, .slots = { (const void *)(mp_print_fun_t) cell_print } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 98 "../py/objclosure.c"
+const mp_obj_type_t mp_type_closure = { .base = { &mp_type_type }, .flags = (0x0020), .name = MP_QSTR_closure, .slot_index_print = 1, .slot_index_call = 2, .slots = { (const void *)(mp_print_fun_t) closure_print, (const void *)(mp_call_fun_t) closure_call } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 94 "../py/objcomplex.c"
+    if (attr == MP_QSTR_real) {
+    } else if (attr == MP_QSTR_imag) {
+const mp_obj_type_t mp_type_complex = { .base = { &mp_type_type }, .flags = (0x0004) | (0x0008), .name = MP_QSTR_complex, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_unary_op = 3, .slot_index_binary_op = 4, .slot_index_attr = 5, .slots = { (const void *)(mp_make_new_fun_t) complex_make_new, (const void *)(mp_print_fun_t) complex_print, (const void *)(mp_unary_op_fun_t) complex_unary_op, (const void *)(mp_binary_op_fun_t) complex_binary_op, (const void *)(mp_attr_fun_t) complex_attr } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 468 "../py/objdict.c"
+static const mp_obj_type_t mp_type_dict_view_it = { .base = { &mp_type_type }, .flags = (0x0080), .name = MP_QSTR_iterator, .slot_index_iter = 1, .slots = { (const void *)(const void *) dict_view_it_iternext } }
+# 518 "../py/objdict.c"
+static const mp_obj_type_t mp_type_dict_view = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_dict_view, .slot_index_print = 1, .slot_index_unary_op = 2, .slot_index_binary_op = 3, .slot_index_iter = 4, .slots = { (const void *)(mp_print_fun_t) dict_view_print, (const void *)(mp_unary_op_fun_t) dict_view_unary_op, (const void *)(mp_binary_op_fun_t) dict_view_binary_op, (const void *)(const void *) dict_view_getiter } }
+# 587 "../py/objdict.c"
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_clear)) << 3) | 2)), (&dict_clear_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_copy)) << 3) | 2)), (&dict_copy_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_fromkeys)) << 3) | 2)), (&dict_fromkeys_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_get)) << 3) | 2)), (&dict_get_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_items)) << 3) | 2)), (&dict_items_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_keys)) << 3) | 2)), (&dict_keys_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_pop)) << 3) | 2)), (&dict_pop_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_popitem)) << 3) | 2)), (&dict_popitem_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_setdefault)) << 3) | 2)), (&dict_setdefault_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_update)) << 3) | 2)), (&dict_update_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_values)) << 3) | 2)), (&dict_values_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR___getitem__)) << 3) | 2)), (&mp_op_getitem_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR___setitem__)) << 3) | 2)), (&mp_op_setitem_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR___delitem__)) << 3) | 2)), (&mp_op_delitem_obj) },
+const mp_obj_type_t mp_type_dict = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_dict, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_unary_op = 3, .slot_index_binary_op = 4, .slot_index_subscr = 5, .slot_index_iter = 6, .slot_index_locals_dict = 7, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_dict_make_new, (const void *)(mp_print_fun_t) dict_print, (const void *)(mp_unary_op_fun_t) dict_unary_op, (const void *)(mp_binary_op_fun_t) dict_binary_op, (const void *)(mp_subscr_fun_t) dict_subscr, (const void *)(const void *) dict_getiter, (const void *)(struct _mp_obj_dict_t *) &dict_locals_dict } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 31 "../py/objenumerate.c" 2
+        { MP_QSTR_iterable, MP_ARG_REQUIRED | MP_ARG_OBJ, {.u_obj = (((mp_obj_t)((void *)0)))} },
+        { MP_QSTR_start, MP_ARG_INT, {.u_int = 0} },
+# 58 "../py/objenumerate.c"
+const mp_obj_type_t mp_type_enumerate = { .base = { &mp_type_type }, .flags = (0x0080), .name = MP_QSTR_enumerate, .slot_index_make_new = 1, .slot_index_iter = 2, .slots = { (const void *)(mp_make_new_fun_t) enumerate_make_new, (const void *)(const void *) enumerate_iternext } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 239 "../py/objexcept.c"
+        if (attr == MP_QSTR___traceback__ && dest[1] == ((mp_obj_t)(((0) << 3) | 6))) {
+    if (attr == MP_QSTR_args) {
+    } else if (attr == MP_QSTR_value || attr == MP_QSTR_errno) {
+const mp_obj_type_t mp_type_BaseException = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_BaseException, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr } }
+const mp_obj_type_t mp_type_SystemExit = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_SystemExit, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_BaseException } };
+const mp_obj_type_t mp_type_KeyboardInterrupt = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_KeyboardInterrupt, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_BaseException } };
+const mp_obj_type_t mp_type_GeneratorExit = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_GeneratorExit, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_BaseException } };
+const mp_obj_type_t mp_type_Exception = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_Exception, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_BaseException } };
+  const mp_obj_type_t mp_type_StopAsyncIteration = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_StopAsyncIteration, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_Exception } };
+  const mp_obj_type_t mp_type_StopIteration = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_StopIteration, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_Exception } };
+  const mp_obj_type_t mp_type_ArithmeticError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_ArithmeticError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_Exception } };
+    const mp_obj_type_t mp_type_OverflowError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_OverflowError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_ArithmeticError } };
+    const mp_obj_type_t mp_type_ZeroDivisionError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_ZeroDivisionError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_ArithmeticError } };
+  const mp_obj_type_t mp_type_AssertionError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_AssertionError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_Exception } };
+  const mp_obj_type_t mp_type_AttributeError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_AttributeError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_Exception } };
+  const mp_obj_type_t mp_type_EOFError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_EOFError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_Exception } };
+  const mp_obj_type_t mp_type_ImportError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_ImportError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_Exception } };
+  const mp_obj_type_t mp_type_LookupError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_LookupError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_Exception } };
+    const mp_obj_type_t mp_type_IndexError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_IndexError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_LookupError } };
+    const mp_obj_type_t mp_type_KeyError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_KeyError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_LookupError } };
+  const mp_obj_type_t mp_type_MemoryError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_MemoryError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_Exception } };
+  const mp_obj_type_t mp_type_NameError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_NameError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_Exception } };
+  const mp_obj_type_t mp_type_OSError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_OSError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_Exception } };
+# 350 "../py/objexcept.c"
+  const mp_obj_type_t mp_type_RuntimeError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_RuntimeError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_Exception } };
+    const mp_obj_type_t mp_type_NotImplementedError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_NotImplementedError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_RuntimeError } };
+  const mp_obj_type_t mp_type_SyntaxError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_SyntaxError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_Exception } };
+    const mp_obj_type_t mp_type_IndentationError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_IndentationError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_SyntaxError } };
+  const mp_obj_type_t mp_type_TypeError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_TypeError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_Exception } };
+    const mp_obj_type_t mp_type_ViperTypeError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_ViperTypeError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_TypeError } };
+  const mp_obj_type_t mp_type_ValueError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_ValueError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_Exception } };
+    const mp_obj_type_t mp_type_UnicodeError = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_UnicodeError, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slot_index_parent = 4, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_exception_make_new, (const void *)(mp_print_fun_t) mp_obj_exception_print, (const void *)(mp_attr_fun_t) mp_obj_exception_attr, (const void *)(const void *) &mp_type_ValueError } };
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 41 "../py/objfilter.c"
+const mp_obj_type_t mp_type_filter = { .base = { &mp_type_type }, .flags = (0x0080), .name = MP_QSTR_filter, .slot_index_make_new = 1, .slot_index_iter = 2, .slots = { (const void *)(mp_make_new_fun_t) filter_make_new, (const void *)(const void *) filter_iternext } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 167 "../py/objfloat.c"
+const mp_obj_type_t mp_type_float = { .base = { &mp_type_type }, .flags = (0x0004) | (0x0008), .name = MP_QSTR_float, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_unary_op = 3, .slot_index_binary_op = 4, .slots = { (const void *)(mp_make_new_fun_t) float_make_new, (const void *)(mp_print_fun_t) float_print, (const void *)(mp_unary_op_fun_t) float_unary_op, (const void *)(mp_binary_op_fun_t) float_binary_op } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 57 "../py/objfun.c"
+const mp_obj_type_t mp_type_fun_builtin_0 = { .base = { &mp_type_type }, .flags = (0x0020) | (0x0040), .name = MP_QSTR_function, .slot_index_call = 1, .slots = { (const void *)(mp_call_fun_t) fun_builtin_0_call } }
+# 69 "../py/objfun.c"
+const mp_obj_type_t mp_type_fun_builtin_1 = { .base = { &mp_type_type }, .flags = (0x0020) | (0x0040), .name = MP_QSTR_function, .slot_index_call = 1, .slots = { (const void *)(mp_call_fun_t) fun_builtin_1_call } }
+# 81 "../py/objfun.c"
+const mp_obj_type_t mp_type_fun_builtin_2 = { .base = { &mp_type_type }, .flags = (0x0020) | (0x0040), .name = MP_QSTR_function, .slot_index_call = 1, .slots = { (const void *)(mp_call_fun_t) fun_builtin_2_call } }
+# 93 "../py/objfun.c"
+const mp_obj_type_t mp_type_fun_builtin_3 = { .base = { &mp_type_type }, .flags = (0x0020) | (0x0040), .name = MP_QSTR_function, .slot_index_call = 1, .slots = { (const void *)(mp_call_fun_t) fun_builtin_3_call } }
+# 103 "../py/objfun.c"
+const mp_obj_type_t mp_type_fun_builtin_var = { .base = { &mp_type_type }, .flags = (0x0020) | (0x0040), .name = MP_QSTR_function, .slot_index_call = 1, .slots = { (const void *)(mp_call_fun_t) fun_builtin_var_call } }
+# 415 "../py/objfun.c"
+const mp_obj_type_t mp_type_fun_bc = { .base = { &mp_type_type }, .flags = (0x0020), .name = MP_QSTR_function, .slot_index_print = 1, .slot_index_call = 2, .slots = { (const void *)(mp_print_fun_t) fun_bc_print, (const void *)(mp_call_fun_t) fun_bc_call } }
+# 477 "../py/objfun.c"
+const mp_obj_type_t mp_type_fun_native = { .base = { &mp_type_type }, .flags = (0x0020), .name = MP_QSTR_function, .slot_index_print = 1, .slot_index_call = 2, .slots = { (const void *)(mp_print_fun_t) fun_bc_print, (const void *)(mp_call_fun_t) fun_native_call } }
+const mp_obj_type_t mp_type_fun_viper = { .base = { &mp_type_type }, .flags = (0x0020), .name = MP_QSTR_function, .slot_index_call = 1, .slots = { (const void *)(mp_call_fun_t) fun_viper_call } }
+# 578 "../py/objfun.c"
+const mp_obj_type_t mp_type_fun_asm = { .base = { &mp_type_type }, .flags = (0x0020), .name = MP_QSTR_function, .slot_index_call = 1, .slots = { (const void *)(mp_call_fun_t) fun_asm_call } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 62 "../py/objgenerator.c"
+const mp_obj_type_t mp_type_gen_wrap = { .base = { &mp_type_type }, .flags = (0x0020), .name = MP_QSTR_generator, .slot_index_call = 1, .slots = { (const void *)(mp_call_fun_t) gen_wrap_call } }
+# 111 "../py/objgenerator.c"
+const mp_obj_type_t mp_type_native_gen_wrap = { .base = { &mp_type_type }, .flags = (0x0020), .name = MP_QSTR_generator, .slot_index_call = 1, .slots = { (const void *)(mp_call_fun_t) native_gen_wrap_call } }
+# 310 "../py/objgenerator.c"
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_close)) << 3) | 2)), (&gen_instance_close_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_send)) << 3) | 2)), (&gen_instance_send_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_throw)) << 3) | 2)), (&gen_instance_throw_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_pend_throw)) << 3) | 2)), (&gen_instance_pend_throw_obj) },
+const mp_obj_type_t mp_type_gen_instance = { .base = { &mp_type_type }, .flags = (0x0080), .name = MP_QSTR_generator, .slot_index_print = 1, .slot_index_iter = 2, .slot_index_locals_dict = 3, .slots = { (const void *)(mp_print_fun_t) gen_instance_print, (const void *)(const void *) gen_instance_iternext, (const void *)(struct _mp_obj_dict_t *) &gen_instance_locals_dict } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 30 "../py/objgetitemiter.c" 2
+static const mp_obj_type_t mp_type_it = { .base = { &mp_type_type }, .flags = (0x0080), .name = MP_QSTR_iterator, .slot_index_iter = 1, .slots = { (const void *)(const void *) it_iternext } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 411 "../py/objint.c"
+        big_endian = n_args < 3 || args[2] != ((mp_obj_t)((((mp_uint_t)(MP_QSTR_little)) << 3) | 2));
+# 431 "../py/objint.c"
+        { MP_QSTR_length, MP_ARG_INT, { .u_int = 1 } },
+        { MP_QSTR_byteorder, MP_ARG_OBJ, { .u_rom_obj = ((mp_obj_t)((((mp_uint_t)(MP_QSTR_big)) << 3) | 2)) } },
+        { MP_QSTR_signed, MP_ARG_KW_ONLY | MP_ARG_BOOL, {.u_bool = 
+# 455 "../py/objint.c"
+        big_endian = args[ARG_byteorder].u_obj != ((mp_obj_t)((((mp_uint_t)(MP_QSTR_little)) << 3) | 2));
+# 462 "../py/objint.c"
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_from_bytes)) << 3) | 2)), (&int_from_bytes_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_to_bytes)) << 3) | 2)), (&int_to_bytes_obj) },
+const mp_obj_type_t mp_type_int = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_int, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_unary_op = 3, .slot_index_binary_op = 4, .slot_index_locals_dict = 5, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_int_make_new, (const void *)(mp_print_fun_t) mp_obj_int_print, (const void *)(mp_unary_op_fun_t) mp_obj_int_unary_op, (const void *)(mp_binary_op_fun_t) mp_obj_int_binary_op, (const void *)(struct _mp_obj_dict_t *) &int_locals_dict } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 290 "../py/objlist.c"
+        { MP_QSTR_key, MP_ARG_KW_ONLY | MP_ARG_OBJ, {.u_rom_obj = ((mp_obj_t)(((0) << 3) | 6))} },
+        { MP_QSTR_reverse, MP_ARG_KW_ONLY | MP_ARG_BOOL, {.u_bool = 
+# 436 "../py/objlist.c"
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_append)) << 3) | 2)), (&list_append_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_clear)) << 3) | 2)), (&list_clear_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_copy)) << 3) | 2)), (&list_copy_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_count)) << 3) | 2)), (&list_count_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_extend)) << 3) | 2)), (&list_extend_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_index)) << 3) | 2)), (&list_index_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_insert)) << 3) | 2)), (&list_insert_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_pop)) << 3) | 2)), (&list_pop_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_remove)) << 3) | 2)), (&list_remove_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_reverse)) << 3) | 2)), (&list_reverse_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_sort)) << 3) | 2)), (&list_sort_obj) },
+const mp_obj_type_t mp_type_list = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_list, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_unary_op = 3, .slot_index_binary_op = 4, .slot_index_subscr = 5, .slot_index_iter = 6, .slot_index_locals_dict = 7, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_list_make_new, (const void *)(mp_print_fun_t) list_print, (const void *)(mp_unary_op_fun_t) list_unary_op, (const void *)(mp_binary_op_fun_t) list_binary_op, (const void *)(mp_subscr_fun_t) list_subscr, (const void *)(const void *) list_getiter, (const void *)(struct _mp_obj_dict_t *) &list_locals_dict } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 45 "../py/objmap.c"
+const mp_obj_type_t mp_type_map = { .base = { &mp_type_type }, .flags = (0x0080), .name = MP_QSTR_map, .slot_index_make_new = 1, .slot_index_iter = 2, .slots = { (const void *)(mp_make_new_fun_t) map_make_new, (const void *)(const void *) map_iternext } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 36 "../py/objmodule.c" 2
+    mp_map_elem_t *elem = mp_map_lookup(&self->globals->map, ((mp_obj_t)((((mp_uint_t)(MP_QSTR___name__)) << 3) | 2)), MP_MAP_LOOKUP);
+# 67 "../py/objmodule.c"
+        } else if (attr == MP_QSTR___dict__) {
+        } else if (attr != MP_QSTR___getattr__) {
+            elem = mp_map_lookup(&self->globals->map, ((mp_obj_t)((((mp_uint_t)(MP_QSTR___getattr__)) << 3) | 2)), MP_MAP_LOOKUP);
+# 97 "../py/objmodule.c"
+const mp_obj_type_t mp_type_module = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_module, .slot_index_print = 1, .slot_index_attr = 2, .slots = { (const void *)(mp_print_fun_t) module_print, (const void *)(mp_attr_fun_t) module_attr } }
+    mp_obj_dict_store(((mp_obj_t)(o->module.globals)), ((mp_obj_t)((((mp_uint_t)(MP_QSTR___name__)) << 3) | 2)), ((mp_obj_t)((((mp_uint_t)(module_name)) << 3) | 2)));
+# 248 "../py/objmodule.c"
+    for (size_t i = 0; keys[i] != MP_QSTRnull; ++i) {
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 98 "../py/objobject.c"
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR___init__)) << 3) | 2)), (&object___init___obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR___new__)) << 3) | 2)), (&object___new___obj) },
+# 120 "../py/objobject.c"
+const mp_obj_type_t mp_type_object = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_object, .slot_index_make_new = 1, .slot_index_locals_dict = 2, .slots = { (const void *)(mp_make_new_fun_t) object_make_new, (const void *)(struct _mp_obj_dict_t *) &object_locals_dict } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 30 "../py/objpolyiter.c" 2
+const mp_obj_type_t mp_type_polymorph_iter = { .base = { &mp_type_type }, .flags = (0x0080), .name = MP_QSTR_iterator, .slot_index_iter = 1, .slots = { (const void *)(const void *) polymorph_it_iternext } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 31 "../py/objproperty.c" 2
+        { MP_QSTR_, MP_ARG_OBJ, {.u_rom_obj = ((mp_obj_t)(((0) << 3) | 6))} },
+        { MP_QSTR_, MP_ARG_OBJ, {.u_rom_obj = ((mp_obj_t)(((0) << 3) | 6))} },
+        { MP_QSTR_, MP_ARG_OBJ, {.u_rom_obj = ((mp_obj_t)(((0) << 3) | 6))} },
+        { MP_QSTR_doc, MP_ARG_OBJ, {.u_rom_obj = ((mp_obj_t)(((0) << 3) | 6))} },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_getter)) << 3) | 2)), (&property_getter_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_setter)) << 3) | 2)), (&property_setter_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_deleter)) << 3) | 2)), (&property_deleter_obj) },
+const mp_obj_type_t mp_type_property = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_property, .slot_index_make_new = 1, .slot_index_locals_dict = 2, .slots = { (const void *)(mp_make_new_fun_t) property_make_new, (const void *)(struct _mp_obj_dict_t *) &property_locals_dict } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 30 "../py/objnone.c" 2
+const mp_obj_type_t mp_type_NoneType = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_NoneType, .slot_index_print = 1, .slots = { (const void *)(mp_print_fun_t) none_print } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 30 "../py/objrange.c" 2
+static const mp_obj_type_t mp_type_range_it = { .base = { &mp_type_type }, .flags = (0x0080), .name = MP_QSTR_iterator, .slot_index_iter = 1, .slots = { (const void *)(const void *) range_it_iternext } }
+# 175 "../py/objrange.c"
+    if (attr == MP_QSTR_start) {
+    } else if (attr == MP_QSTR_stop) {
+    } else if (attr == MP_QSTR_step) {
+# 217 "../py/objrange.c"
+const mp_obj_type_t mp_type_range = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_range, .slot_index_make_new = 1, .slot_index_attr = 2, .slot_index_print = 3, .slot_index_unary_op = 4, .slot_index_subscr = 5, .slot_index_iter = 6, .slots = { (const void *)(mp_make_new_fun_t) range_make_new, (const void *)(mp_attr_fun_t) range_attr, (const void *)(mp_print_fun_t) range_print, (const void *)(mp_unary_op_fun_t) range_unary_op, (const void *)(mp_subscr_fun_t) range_subscr, (const void *)(const void *) range_getiter } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 41 "../py/objreversed.c"
+    mp_load_method_maybe(args[0], MP_QSTR___reversed__, dest);
+const mp_obj_type_t mp_type_reversed = { .base = { &mp_type_type }, .flags = (0x0080), .name = MP_QSTR_reversed, .slot_index_make_new = 1, .slot_index_iter = 2, .slots = { (const void *)(mp_make_new_fun_t) reversed_make_new, (const void *)(const void *) reversed_iternext } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 481 "../py/objset.c"
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_add)) << 3) | 2)), (&set_add_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_clear)) << 3) | 2)), (&set_clear_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_copy)) << 3) | 2)), (&set_copy_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_discard)) << 3) | 2)), (&set_discard_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_difference)) << 3) | 2)), (&set_diff_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_difference_update)) << 3) | 2)), (&set_diff_update_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_intersection)) << 3) | 2)), (&set_intersect_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_intersection_update)) << 3) | 2)), (&set_intersect_update_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_isdisjoint)) << 3) | 2)), (&set_isdisjoint_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_issubset)) << 3) | 2)), (&set_issubset_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_issuperset)) << 3) | 2)), (&set_issuperset_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_pop)) << 3) | 2)), (&set_pop_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_remove)) << 3) | 2)), (&set_remove_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_symmetric_difference)) << 3) | 2)), (&set_symmetric_difference_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_symmetric_difference_update)) << 3) | 2)), (&set_symmetric_difference_update_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_union)) << 3) | 2)), (&set_union_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_update)) << 3) | 2)), (&set_update_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR___contains__)) << 3) | 2)), (&mp_op_contains_obj) },
+const mp_obj_type_t mp_type_set = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_set, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_unary_op = 3, .slot_index_binary_op = 4, .slot_index_iter = 5, .slot_index_locals_dict = 6, .slots = { (const void *)(mp_make_new_fun_t) set_make_new, (const void *)(mp_print_fun_t) set_print, (const void *)(mp_unary_op_fun_t) set_unary_op, (const void *)(mp_binary_op_fun_t) set_binary_op, (const void *)(const void *) set_getiter, (const void *)(struct _mp_obj_dict_t *) &set_locals_dict } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 31 "../py/objsingleton.c" 2
+const mp_obj_type_t mp_type_singleton = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_, .slot_index_print = 1, .slots = { (const void *)(mp_print_fun_t) singleton_print } }
+const mp_obj_singleton_t mp_const_ellipsis_obj = {{&mp_type_singleton}, MP_QSTR_Ellipsis};
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 109 "../py/objslice.c"
+const mp_obj_type_t mp_type_slice = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_slice, .slot_index_unary_op = 1, .slot_index_print = 2, .slots = { (const void *)(mp_unary_op_fun_t) slice_unary_op, (const void *)(mp_print_fun_t) slice_print } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 35 "../py/objstr.c" 2
+        return ((mp_obj_t)((((mp_uint_t)(MP_QSTR_)) << 3) | 2));
+# 248 "../py/objstr.c"
+    if (encoding == MP_QSTR_utf_hyphen_8 || encoding == MP_QSTR_utf8) {
+    if (encoding == MP_QSTR_ascii) {
+# 270 "../py/objstr.c"
+            return ((mp_obj_t)((((mp_uint_t)(MP_QSTR_)) << 3) | 2));
+# 314 "../py/objstr.c"
+            if (q != MP_QSTRnull) {
+# 2076 "../py/objstr.c"
+        new_args[1] = ((mp_obj_t)((((mp_uint_t)(MP_QSTR_utf_hyphen_8)) << 3) | 2));
+# 2131 "../py/objstr.c"
+        new_args[1] = ((mp_obj_t)((((mp_uint_t)(MP_QSTR_utf_hyphen_8)) << 3) | 2));
+# 2221 "../py/objstr.c"
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_append)) << 3) | 2)), (&mp_obj_array_append_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_extend)) << 3) | 2)), (&mp_obj_array_extend_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_decode)) << 3) | 2)), (&bytes_decode_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_find)) << 3) | 2)), (&str_find_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_rfind)) << 3) | 2)), (&str_rfind_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_index)) << 3) | 2)), (&str_index_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_rindex)) << 3) | 2)), (&str_rindex_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_join)) << 3) | 2)), (&str_join_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_split)) << 3) | 2)), (&str_split_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_rsplit)) << 3) | 2)), (&str_rsplit_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_startswith)) << 3) | 2)), (&str_startswith_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_endswith)) << 3) | 2)), (&str_endswith_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_strip)) << 3) | 2)), (&str_strip_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_lstrip)) << 3) | 2)), (&str_lstrip_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_rstrip)) << 3) | 2)), (&str_rstrip_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_format)) << 3) | 2)), (&str_format_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_replace)) << 3) | 2)), (&str_replace_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_count)) << 3) | 2)), (&str_count_obj) },
+# 2279 "../py/objstr.c"
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_lower)) << 3) | 2)), (&str_lower_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_upper)) << 3) | 2)), (&str_upper_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_isspace)) << 3) | 2)), (&str_isspace_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_isalpha)) << 3) | 2)), (&str_isalpha_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_isdigit)) << 3) | 2)), (&str_isdigit_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_isupper)) << 3) | 2)), (&str_isupper_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_islower)) << 3) | 2)), (&str_islower_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_encode)) << 3) | 2)), (&str_encode_obj) },
+# 2357 "../py/objstr.c"
+const mp_obj_type_t mp_type_bytes = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_bytes, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_binary_op = 3, .slot_index_subscr = 4, .slot_index_iter = 5, .slot_index_buffer = 6, .slot_index_locals_dict = 7, .slots = { (const void *)(mp_make_new_fun_t) bytes_make_new, (const void *)(mp_print_fun_t) str_print, (const void *)(mp_binary_op_fun_t) mp_obj_str_binary_op, (const void *)(mp_subscr_fun_t) bytes_subscr, (const void *)(const void *) mp_obj_new_bytes_iterator, (const void *)(mp_buffer_fun_t) mp_obj_str_get_buffer, (const void *)(struct _mp_obj_dict_t *) &mp_obj_bytes_locals_dict } }
+# 2368 "../py/objstr.c"
+        if (q != MP_QSTRnull) {
+# 2467 "../py/objstr.c"
+    if (q != MP_QSTRnull) {
+# 2512 "../py/objstr.c"
+        src_name, src_name == MP_QSTR_str ? MP_QSTR_bytes : MP_QSTR_str);
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 218 "../py/objstrunicode.c"
+                return ((mp_obj_t)((((mp_uint_t)(MP_QSTR_)) << 3) | 2));
+# 228 "../py/objstrunicode.c"
+const mp_obj_type_t mp_type_str = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_str, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_unary_op = 3, .slot_index_binary_op = 4, .slot_index_subscr = 5, .slot_index_iter = 6, .slot_index_buffer = 7, .slot_index_locals_dict = 8, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_str_make_new, (const void *)(mp_print_fun_t) uni_print, (const void *)(mp_unary_op_fun_t) uni_unary_op, (const void *)(mp_binary_op_fun_t) mp_obj_str_binary_op, (const void *)(mp_subscr_fun_t) str_subscr, (const void *)(const void *) mp_obj_new_str_iterator, (const void *)(mp_buffer_fun_t) mp_obj_str_get_buffer, (const void *)(struct _mp_obj_dict_t *) &mp_obj_str_locals_dict } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 49 "../py/objtemplate.c"
+        mp_obj_t empty = ((mp_obj_t)((((mp_uint_t)(MP_QSTR_)) << 3) | 2));
+# 111 "../py/objtemplate.c"
+                        out_str = ((mp_obj_t)((((mp_uint_t)(MP_QSTR_)) << 3) | 2));
+# 135 "../py/objtemplate.c"
+    mp_printf(print, "%q(%q=", (qstr)MP_QSTR_Template, (qstr)MP_QSTR_strings);
+    mp_printf(print, ", %q=", (qstr)MP_QSTR_interpolations);
+# 183 "../py/objtemplate.c"
+        if (attr == MP_QSTR_strings) {
+        } else if (attr == MP_QSTR_interpolations) {
+        } else if (attr == MP_QSTR_values) {
+# 281 "../py/objtemplate.c"
+const mp_obj_type_t mp_type_template = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_Template, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_binary_op = 3, .slot_index_attr = 4, .slot_index_iter = 5, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_template_make_new, (const void *)(mp_print_fun_t) mp_obj_template_print, (const void *)(mp_binary_op_fun_t) mp_obj_template_binary_op, (const void *)(mp_attr_fun_t) mp_obj_template_attr, (const void *)(const void *) mp_obj_template_iter } }
+# 315 "../py/objtemplate.c"
+        { MP_QSTR_value, MP_ARG_REQUIRED | MP_ARG_OBJ, {.u_obj = (((mp_obj_t)((void *)0)))} },
+        { MP_QSTR_expression, MP_ARG_OBJ, {.u_rom_obj = ((mp_obj_t)((((mp_uint_t)(MP_QSTR_)) << 3) | 2))} },
+        { MP_QSTR_conversion, MP_ARG_OBJ, {.u_rom_obj = ((mp_obj_t)(((0) << 3) | 6))} },
+        { MP_QSTR_format_spec, MP_ARG_OBJ, {.u_rom_obj = ((mp_obj_t)((((mp_uint_t)(MP_QSTR_)) << 3) | 2))} },
+    mp_printf(print, "%q(", (qstr)MP_QSTR_Interpolation);
+        if (attr == MP_QSTR_value) {
+        } else if (attr == MP_QSTR_expression) {
+        } else if (attr == MP_QSTR_conversion) {
+        } else if (attr == MP_QSTR_format_spec) {
+const mp_obj_type_t mp_type_interpolation = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_Interpolation, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_interpolation_make_new, (const void *)(mp_print_fun_t) mp_obj_interpolation_print, (const void *)(mp_attr_fun_t) mp_obj_interpolation_attr } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 222 "../py/objtuple.c"
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_count)) << 3) | 2)), (&tuple_count_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_index)) << 3) | 2)), (&tuple_index_obj) },
+const mp_obj_type_t mp_type_tuple = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_tuple, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_unary_op = 3, .slot_index_binary_op = 4, .slot_index_subscr = 5, .slot_index_iter = 6, .slot_index_locals_dict = 7, .slots = { (const void *)(mp_make_new_fun_t) mp_obj_tuple_make_new, (const void *)(mp_print_fun_t) mp_obj_tuple_print, (const void *)(mp_unary_op_fun_t) mp_obj_tuple_unary_op, (const void *)(mp_binary_op_fun_t) mp_obj_tuple_binary_op, (const void *)(mp_subscr_fun_t) mp_obj_tuple_subscr, (const void *)(const void *) mp_obj_tuple_getiter, (const void *)(struct _mp_obj_dict_t *) &tuple_locals_dict } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 233 "../py/objtype.c"
+    qstr meth = (kind == PRINT_STR) ? MP_QSTR___str__ : MP_QSTR___repr__;
+# 255 "../py/objtype.c"
+        lookup.attr = MP_QSTR___repr__;
+# 294 "../py/objtype.c"
+        .attr = MP_QSTR___new__,
+# 302 "../py/objtype.c"
+    lookup.attr = MP_QSTR___init__;
+# 372 "../py/objtype.c"
+    [MP_UNARY_OP_BOOL] = MP_QSTR___bool__,
+    [MP_UNARY_OP_LEN] = MP_QSTR___len__,
+    [MP_UNARY_OP_HASH] = MP_QSTR___hash__,
+    [MP_UNARY_OP_INT_MAYBE] = MP_QSTR___int__,
+    [MP_UNARY_OP_FLOAT_MAYBE] = MP_QSTR___float__,
+    [MP_UNARY_OP_COMPLEX_MAYBE] = MP_QSTR___complex__,
+# 449 "../py/objtype.c"
+            lookup.attr = MP_QSTR___eq__;
+# 484 "../py/objtype.c"
+    [MP_BINARY_OP_LESS] = MP_QSTR___lt__,
+    [MP_BINARY_OP_MORE] = MP_QSTR___gt__,
+    [MP_BINARY_OP_EQUAL] = MP_QSTR___eq__,
+    [MP_BINARY_OP_LESS_EQUAL] = MP_QSTR___le__,
+    [MP_BINARY_OP_MORE_EQUAL] = MP_QSTR___ge__,
+    [MP_BINARY_OP_NOT_EQUAL] = MP_QSTR___ne__,
+    [MP_BINARY_OP_CONTAINS] = MP_QSTR___contains__,
+    [MP_BINARY_OP_INPLACE_ADD] = MP_QSTR___iadd__,
+    [MP_BINARY_OP_INPLACE_SUBTRACT] = MP_QSTR___isub__,
+# 510 "../py/objtype.c"
+    [MP_BINARY_OP_ADD] = MP_QSTR___add__,
+    [MP_BINARY_OP_SUBTRACT] = MP_QSTR___sub__,
+# 595 "../py/objtype.c"
+    if (attr == MP_QSTR___dict__) {
+# 660 "../py/objtype.c"
+    if (attr != MP_QSTR___getattr__) {
+# 681 "../py/objtype.c"
+        mp_load_method_maybe(self_in, MP_QSTR___getattr__, dest2);
+# 832 "../py/objtype.c"
+        lookup.attr = MP_QSTR___delitem__;
+        lookup.attr = MP_QSTR___getitem__;
+        lookup.attr = MP_QSTR___setitem__;
+        .attr = MP_QSTR___call__,
+# 873 "../py/objtype.c"
+        .attr = MP_QSTR___iter__,
+# 916 "../py/objtype.c"
+        .attr = MP_QSTR_,
+# 1068 "../py/objtype.c"
+        if (attr == MP_QSTR___name__) {
+        if (attr == MP_QSTR___dict__) {
+# 1082 "../py/objtype.c"
+        if (attr == MP_QSTR___bases__) {
+# 1133 "../py/objtype.c"
+const mp_obj_type_t mp_type_type = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_type, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_call = 3, .slot_index_attr = 4, .slots = { (const void *)(mp_make_new_fun_t) type_make_new, (const void *)(mp_print_fun_t) type_print, (const void *)(mp_call_fun_t) type_call, (const void *)(mp_attr_fun_t) type_attr } }
+# 1267 "../py/objtype.c"
+    mp_map_elem_t *elem = mp_map_lookup(&locals_ptr->map, ((mp_obj_t)((((mp_uint_t)(MP_QSTR___new__)) << 3) | 2)), MP_MAP_LOOKUP);
+# 1297 "../py/objtype.c"
+        if ((mp_obj_is_obj(elem->value) && (((mp_obj_base_t *)((void *)(elem->value)))->type->name == MP_QSTR_function))) {
+# 1368 "../py/objtype.c"
+    if (attr == MP_QSTR___init__) {
+# 1384 "../py/objtype.c"
+const mp_obj_type_t mp_type_super = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_super, .slot_index_make_new = 1, .slot_index_print = 2, .slot_index_attr = 3, .slots = { (const void *)(mp_make_new_fun_t) super_make_new, (const void *)(mp_print_fun_t) super_print, (const void *)(mp_attr_fun_t) super_attr } }
+# 1533 "../py/objtype.c"
+const mp_obj_type_t mp_type_staticmethod = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_staticmethod, .slot_index_make_new = 1, .slots = { (const void *)(mp_make_new_fun_t) static_class_method_make_new } }
+const mp_obj_type_t mp_type_classmethod = { .base = { &mp_type_type }, .flags = (0x0000), .name = MP_QSTR_classmethod, .slot_index_make_new = 1, .slots = { (const void *)(mp_make_new_fun_t) static_class_method_make_new } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 64 "../py/objzip.c"
+const mp_obj_type_t mp_type_zip = { .base = { &mp_type_type }, .flags = (0x0080), .name = MP_QSTR_zip, .slot_index_make_new = 1, .slot_index_iter = 2, .slots = { (const void *)(mp_make_new_fun_t) zip_make_new, (const void *)(const void *) zip_iternext } }
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 281 "../py/builtinimport.c"
+    mp_obj_t current_module_name_obj = mp_obj_dict_get(globals, ((mp_obj_t)((((mp_uint_t)(MP_QSTR___name__)) << 3) | 2)));
+# 294 "../py/builtinimport.c"
+        is_pkg = mp_map_lookup(mp_obj_dict_get_map(globals), ((mp_obj_t)((((mp_uint_t)(MP_QSTR___path__)) << 3) | 2)), MP_MAP_LOOKUP);
+# 429 "../py/builtinimport.c"
+        mp_load_method_maybe(outer_module_obj, MP_QSTR___path__, dest);
+# 494 "../py/builtinimport.c"
+        mp_store_attr(module_obj, MP_QSTR___path__, mp_obj_new_str(vstr_str(&path), vstr_len(&path)));
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 165 "../py/builtinevex.c"
+        lex = mp_lexer_new_from_str_len(MP_QSTR__lt_string_gt_, bufinfo.buf, bufinfo.len, 0);
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 89 "../py/modbuiltins.c"
+    mp_obj_t args[] = { ((mp_obj_t)((((mp_uint_t)(MP_QSTR__brace_open__colon__hash_b_brace_close_)) << 3) | 2)), o_in };
+# 160 "../py/modbuiltins.c"
+        for (size_t i = MP_QSTR_ + 1; i < nqstr; ++i) {
+# 190 "../py/modbuiltins.c"
+    return mp_binary_op(MP_BINARY_OP_MODULO, ((mp_obj_t)((((mp_uint_t)(MP_QSTR__percent__hash_x)) << 3) | 2)), o_in);
+# 244 "../py/modbuiltins.c"
+    mp_map_elem_t *key_elem = mp_map_lookup(kwargs, ((mp_obj_t)((((mp_uint_t)(MP_QSTR_key)) << 3) | 2)), MP_MAP_LOOKUP);
+# 253 "../py/modbuiltins.c"
+            default_elem = mp_map_lookup(kwargs, ((mp_obj_t)((((mp_uint_t)(MP_QSTR_default)) << 3) | 2)), MP_MAP_LOOKUP);
+# 320 "../py/modbuiltins.c"
+    return mp_binary_op(MP_BINARY_OP_MODULO, ((mp_obj_t)((((mp_uint_t)(MP_QSTR__percent__hash_o)) << 3) | 2)), o_in);
+# 385 "../py/modbuiltins.c"
+        { MP_QSTR_sep, MP_ARG_KW_ONLY | MP_ARG_OBJ, {.u_rom_obj = ((mp_obj_t)((((mp_uint_t)(MP_QSTR__space_)) << 3) | 2))} },
+        { MP_QSTR_end, MP_ARG_KW_ONLY | MP_ARG_OBJ, {.u_rom_obj = ((mp_obj_t)((((mp_uint_t)(MP_QSTR__0x0a_)) << 3) | 2))} },
+# 608 "../py/modbuiltins.c"
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR___name__)) << 3) | 2)), ((mp_obj_t)((((mp_uint_t)(MP_QSTR_builtins)) << 3) | 2)) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR___build_class__)) << 3) | 2)), (&mp_builtin___build_class___obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR___import__)) << 3) | 2)), (&mp_builtin___import___obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR___repl_print__)) << 3) | 2)), (&mp_builtin___repl_print___obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR___template__)) << 3) | 2)), (&mp_builtin___template___obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_bool)) << 3) | 2)), (&mp_type_bool) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_bytes)) << 3) | 2)), (&mp_type_bytes) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_bytearray)) << 3) | 2)), (&mp_type_bytearray) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_complex)) << 3) | 2)), (&mp_type_complex) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_dict)) << 3) | 2)), (&mp_type_dict) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_enumerate)) << 3) | 2)), (&mp_type_enumerate) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_filter)) << 3) | 2)), (&mp_type_filter) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_float)) << 3) | 2)), (&mp_type_float) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_int)) << 3) | 2)), (&mp_type_int) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_list)) << 3) | 2)), (&mp_type_list) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_map)) << 3) | 2)), (&mp_type_map) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_object)) << 3) | 2)), (&mp_type_object) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_property)) << 3) | 2)), (&mp_type_property) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_range)) << 3) | 2)), (&mp_type_range) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_reversed)) << 3) | 2)), (&mp_type_reversed) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_set)) << 3) | 2)), (&mp_type_set) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_slice)) << 3) | 2)), (&mp_type_slice) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_str)) << 3) | 2)), (&mp_type_str) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_super)) << 3) | 2)), (&mp_type_super) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_tuple)) << 3) | 2)), (&mp_type_tuple) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_type)) << 3) | 2)), (&mp_type_type) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_zip)) << 3) | 2)), (&mp_type_zip) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_classmethod)) << 3) | 2)), (&mp_type_classmethod) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_staticmethod)) << 3) | 2)), (&mp_type_staticmethod) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_Ellipsis)) << 3) | 2)), (&mp_const_ellipsis_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_abs)) << 3) | 2)), (&mp_builtin_abs_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_all)) << 3) | 2)), (&mp_builtin_all_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_any)) << 3) | 2)), (&mp_builtin_any_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_bin)) << 3) | 2)), (&mp_builtin_bin_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_callable)) << 3) | 2)), (&mp_builtin_callable_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_chr)) << 3) | 2)), (&mp_builtin_chr_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_delattr)) << 3) | 2)), (&mp_builtin_delattr_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_dir)) << 3) | 2)), (&mp_builtin_dir_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_divmod)) << 3) | 2)), (&mp_builtin_divmod_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_eval)) << 3) | 2)), (&mp_builtin_eval_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_exec)) << 3) | 2)), (&mp_builtin_exec_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_getattr)) << 3) | 2)), (&mp_builtin_getattr_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_setattr)) << 3) | 2)), (&mp_builtin_setattr_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_globals)) << 3) | 2)), (&mp_builtin_globals_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_hasattr)) << 3) | 2)), (&mp_builtin_hasattr_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_hash)) << 3) | 2)), (&mp_builtin_hash_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_hex)) << 3) | 2)), (&mp_builtin_hex_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_id)) << 3) | 2)), (&mp_builtin_id_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_isinstance)) << 3) | 2)), (&mp_builtin_isinstance_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_issubclass)) << 3) | 2)), (&mp_builtin_issubclass_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_iter)) << 3) | 2)), (&mp_builtin_iter_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_len)) << 3) | 2)), (&mp_builtin_len_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_locals)) << 3) | 2)), (&mp_builtin_locals_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_max)) << 3) | 2)), (&mp_builtin_max_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_min)) << 3) | 2)), (&mp_builtin_min_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_next)) << 3) | 2)), (&mp_builtin_next_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_oct)) << 3) | 2)), (&mp_builtin_oct_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_ord)) << 3) | 2)), (&mp_builtin_ord_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_pow)) << 3) | 2)), (&mp_builtin_pow_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_print)) << 3) | 2)), (&mp_builtin_print_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_repr)) << 3) | 2)), (&mp_builtin_repr_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_round)) << 3) | 2)), (&mp_builtin_round_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_sorted)) << 3) | 2)), (&mp_builtin_sorted_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_sum)) << 3) | 2)), (&mp_builtin_sum_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_BaseException)) << 3) | 2)), (&mp_type_BaseException) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_ArithmeticError)) << 3) | 2)), (&mp_type_ArithmeticError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_AssertionError)) << 3) | 2)), (&mp_type_AssertionError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_AttributeError)) << 3) | 2)), (&mp_type_AttributeError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_EOFError)) << 3) | 2)), (&mp_type_EOFError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_Exception)) << 3) | 2)), (&mp_type_Exception) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_GeneratorExit)) << 3) | 2)), (&mp_type_GeneratorExit) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_ImportError)) << 3) | 2)), (&mp_type_ImportError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_IndentationError)) << 3) | 2)), (&mp_type_IndentationError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_IndexError)) << 3) | 2)), (&mp_type_IndexError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_KeyboardInterrupt)) << 3) | 2)), (&mp_type_KeyboardInterrupt) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_KeyError)) << 3) | 2)), (&mp_type_KeyError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_LookupError)) << 3) | 2)), (&mp_type_LookupError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_MemoryError)) << 3) | 2)), (&mp_type_MemoryError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_NameError)) << 3) | 2)), (&mp_type_NameError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_NotImplementedError)) << 3) | 2)), (&mp_type_NotImplementedError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_OSError)) << 3) | 2)), (&mp_type_OSError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_OverflowError)) << 3) | 2)), (&mp_type_OverflowError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_RuntimeError)) << 3) | 2)), (&mp_type_RuntimeError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_StopAsyncIteration)) << 3) | 2)), (&mp_type_StopAsyncIteration) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_StopIteration)) << 3) | 2)), (&mp_type_StopIteration) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_SyntaxError)) << 3) | 2)), (&mp_type_SyntaxError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_SystemExit)) << 3) | 2)), (&mp_type_SystemExit) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_TypeError)) << 3) | 2)), (&mp_type_TypeError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_UnicodeError)) << 3) | 2)), (&mp_type_UnicodeError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_ValueError)) << 3) | 2)), (&mp_type_ValueError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_ViperTypeError)) << 3) | 2)), (&mp_type_ViperTypeError) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_ZeroDivisionError)) << 3) | 2)), (&mp_type_ZeroDivisionError) },
+MP_REGISTER_MODULE(MP_QSTR_builtins, mp_module_builtins);
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 389 "../py/modmath.c"
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR___name__)) << 3) | 2)), ((mp_obj_t)((((mp_uint_t)(MP_QSTR_math)) << 3) | 2)) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_e)) << 3) | 2)), (&mp_const_float_e_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_pi)) << 3) | 2)), (&mp_const_float_pi_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_tau)) << 3) | 2)), (&mp_const_float_tau_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_inf)) << 3) | 2)), (&mp_const_float_inf_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_nan)) << 3) | 2)), (&mp_const_float_nan_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_sqrt)) << 3) | 2)), (&mp_math_sqrt_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_pow)) << 3) | 2)), (&mp_math_pow_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_exp)) << 3) | 2)), (&mp_math_exp_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_log)) << 3) | 2)), (&mp_math_log_obj) },
+# 415 "../py/modmath.c"
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_cos)) << 3) | 2)), (&mp_math_cos_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_sin)) << 3) | 2)), (&mp_math_sin_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_tan)) << 3) | 2)), (&mp_math_tan_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_acos)) << 3) | 2)), (&mp_math_acos_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_asin)) << 3) | 2)), (&mp_math_asin_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_atan)) << 3) | 2)), (&mp_math_atan_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_atan2)) << 3) | 2)), (&mp_math_atan2_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_ceil)) << 3) | 2)), (&mp_math_ceil_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_copysign)) << 3) | 2)), (&mp_math_copysign_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_fabs)) << 3) | 2)), (&mp_math_fabs_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_floor)) << 3) | 2)), (&mp_math_floor_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_fmod)) << 3) | 2)), (&mp_math_fmod_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_frexp)) << 3) | 2)), (&mp_math_frexp_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_ldexp)) << 3) | 2)), (&mp_math_ldexp_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_modf)) << 3) | 2)), (&mp_math_modf_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_isfinite)) << 3) | 2)), (&mp_math_isfinite_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_isinf)) << 3) | 2)), (&mp_math_isinf_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_isnan)) << 3) | 2)), (&mp_math_isnan_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_trunc)) << 3) | 2)), (&mp_math_trunc_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_radians)) << 3) | 2)), (&mp_math_radians_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_degrees)) << 3) | 2)), (&mp_math_degrees_obj) },
+# 448 "../py/modmath.c"
+MP_REGISTER_MODULE(MP_QSTR_math, mp_module_math);
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 191 "../py/modmicropython.c"
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR___name__)) << 3) | 2)), ((mp_obj_t)((((mp_uint_t)(MP_QSTR_micropython)) << 3) | 2)) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_const)) << 3) | 2)), (&mp_identity_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_opt_level)) << 3) | 2)), (&mp_micropython_opt_level_obj) },
+# 216 "../py/modmicropython.c"
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_heap_lock)) << 3) | 2)), (&mp_micropython_heap_lock_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_heap_unlock)) << 3) | 2)), (&mp_micropython_heap_unlock_obj) },
+# 231 "../py/modmicropython.c"
+MP_REGISTER_MODULE(MP_QSTR_micropython, mp_module_micropython);
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 28 "../py/modstring.c" 2
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR___name__)) << 3) | 2)), ((mp_obj_t)((((mp_uint_t)(MP_QSTR_string_dot_templatelib)) << 3) | 2)) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_Template)) << 3) | 2)), (&mp_type_template) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_Interpolation)) << 3) | 2)), (&mp_type_interpolation) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR___name__)) << 3) | 2)), ((mp_obj_t)((((mp_uint_t)(MP_QSTR_string)) << 3) | 2)) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_templatelib)) << 3) | 2)), (&mp_module_string_templatelib) },
+MP_REGISTER_EXTENSIBLE_MODULE(MP_QSTR_string, mp_module_string);
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 258 "../py/modstruct.c"
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR___name__)) << 3) | 2)), ((mp_obj_t)((((mp_uint_t)(MP_QSTR_struct)) << 3) | 2)) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_calcsize)) << 3) | 2)), (&struct_calcsize_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_pack)) << 3) | 2)), (&struct_pack_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_pack_into)) << 3) | 2)), (&struct_pack_into_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_unpack)) << 3) | 2)), (&struct_unpack_from_obj) },
+    { ((mp_obj_t)((((mp_uint_t)(MP_QSTR_unpack_from)) << 3) | 2)), (&struct_unpack_from_obj) },
+MP_REGISTER_EXTENSIBLE_MODULE(MP_QSTR_struct, mp_module_struct);
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 431 "../py/vm.c"
+                    mp_load_method(obj, MP_QSTR___exit__, sp);
+                    mp_load_method(obj, MP_QSTR___enter__, sp + 2);
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,
+# 39 "../py/qstr.h"
+    MP_QSTRnumber_of_static,
+    MP_QSTRstart_of_main = MP_QSTRnumber_of_static - 1,
+# 57 "../py/qstr.h"
+    MP_QSTRnumber_of,

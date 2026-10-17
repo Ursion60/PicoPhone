@@ -175,7 +175,9 @@ def launch(app_id):
     except Exception as e:                          # erreur pendant l'exécution
         sys.print_exception(e)
         run(ErrorApp(e))
-    sys.modules.pop(modname, None)                  # libère la RAM de l'appli
+    sys.modules.pop(modname, None)                  # libère la RAM de l'appli...
+    for m in [k for k in sys.modules if k.startswith("apps.")]:
+        sys.modules.pop(m, None)                    # ...et de ses modules d'aide (ex. apps.pdftext)
     gc.collect()
 
 

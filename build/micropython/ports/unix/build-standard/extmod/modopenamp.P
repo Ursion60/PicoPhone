@@ -1,0 +1,4 @@
+build-standard/extmod/modopenamp.o: ../../extmod/modopenamp.c \
+ /usr/include/stdc-predef.h
+../../extmod/modopenamp.c :
+ /usr/include/stdc-predef.h :

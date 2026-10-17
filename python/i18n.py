@@ -70,6 +70,18 @@ STRINGS = {
     "notes_demo_2":   {"FR": "Écrire ma première appli",     "EN": "Write my first app",        "ES": "Escribir mi primera app",     "AL": "Meine erste App schreiben",     "JP": "最初のアプリを書く", "CN": "编写我的第一个应用"},
     "notes_demo_3":   {"FR": "Brancher le lecteur NFC",      "EN": "Connect the NFC reader",    "ES": "Conectar el lector NFC",      "AL": "NFC-Lesegerät anschließen",     "JP": "NFCリーダーを接続する", "CN": "连接NFC读卡器"},
 
+    # Lecteur PDF
+    "pdf_none":      {"FR": "Aucun PDF",              "EN": "No PDF",                "ES": "Sin PDF",                 "AL": "Keine PDF",             "JP": "PDFがありません",     "CN": "没有PDF"},
+    "pdf_hint":      {"FR": "Copiez vos .pdf dans",   "EN": "Copy your .pdf files to", "ES": "Copia tus .pdf en",      "AL": "Kopiere deine PDFs nach", "JP": "PDFを次にコピー",   "CN": "请将PDF复制到"},
+    "pdf_page":      {"FR": "Page",                   "EN": "Page",                  "ES": "Pág.",                    "AL": "Seite",                 "JP": "ページ",              "CN": "页"},
+    "pdf_unit_kb":   {"FR": "Ko",                     "EN": "KB",                    "ES": "KB",                      "AL": "KB",                    "JP": "KB",                  "CN": "KB"},
+    "pdf_loading":   {"FR": "Lecture...",             "EN": "Reading...",            "ES": "Leyendo...",              "AL": "Lese...",               "JP": "読み込み中...",       "CN": "读取中..."},
+    "pdf_no_text":   {"FR": "Pas de texte sur cette page", "EN": "No text on this page", "ES": "Sin texto en esta página", "AL": "Kein Text auf dieser Seite", "JP": "このページにテキストはありません", "CN": "此页没有文字"},
+    "pdf_garbled":   {"FR": "Texte non décodable (police sans table Unicode)", "EN": "Text can't be decoded (font has no Unicode table)", "ES": "Texto no descifrable (fuente sin tabla Unicode)", "AL": "Text nicht lesbar (Schrift ohne Unicode-Tabelle)", "JP": "テキストを解読できません", "CN": "无法解码文字"},
+    "pdf_encrypted": {"FR": "PDF chiffré : non géré", "EN": "Encrypted PDF: unsupported", "ES": "PDF cifrado: no soportado", "AL": "Verschlüsseltes PDF: nicht unterstützt", "JP": "暗号化PDFは非対応です", "CN": "不支持加密PDF"},
+    "pdf_bad":       {"FR": "PDF illisible",          "EN": "Unreadable PDF",        "ES": "PDF ilegible",            "AL": "PDF nicht lesbar",      "JP": "PDFを読めません",     "CN": "无法读取PDF"},
+    "pdf_truncated": {"FR": "[page tronquée]",        "EN": "[page truncated]",      "ES": "[página truncada]",       "AL": "[Seite gekürzt]",       "JP": "[ページ省略]",        "CN": "[页面已截断]"},
+
     # Paramètres
     "settings_brightness": {"FR": "Luminosité", "EN": "Brightness", "ES": "Brillo",  "AL": "Helligkeit", "JP": "明るさ", "CN": "亮度"},
     "settings_language":   {"FR": "Langue",     "EN": "Language",   "ES": "Idioma",  "AL": "Sprache",    "JP": "言語",   "CN": "语言"},

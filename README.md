@@ -23,7 +23,7 @@ cd python && ../build/micropython/ports/unix/build-standard/micropython main.py
 ```
 
 Souris = doigt, Échap pour quitter. Le test automatique (lanceur -> appli -> Retour, avec captures
-`/tmp/phone_*.ppm`) : `cd python && SDL_VIDEODRIVER=dummy <micropython> ../host/test_flow.py` (idem pour `test_notes.py`, `test_notes_scroll.py`, `test_keyboard.py`, `test_i18n.py`).
+`/tmp/phone_*.ppm`) : `cd python && SDL_VIDEODRIVER=dummy <micropython> ../host/test_flow.py` (idem pour `test_notes.py`, `test_notes_scroll.py`, `test_keyboard.py`, `test_i18n.py`, `test_pdf.py`).
 
 ## 2. Sur la carte
 
@@ -79,6 +79,27 @@ système). `appkit.prompt_text("Titre")` ouvre un
 clavier AZERTY plein écran et renvoie le texte saisi, ou `None` si Annuler :
 - page lettres : majuscule (^), page chiffres/symboles (123), **page accents (icône « é »)**
   pour taper é/è/ê/ë/à/â/ä/ù/û/ü/ï/î/ô/ö/ç/ñ quelle que soit la langue de l'interface.
+
+## Lecteur PDF
+
+`apps/lecteur_pdf.py` (icône « PDF ») liste les `.pdf` du dossier `pdfs/` de la carte et en affiche le **texte**,
+page par page. Boutons du bas : ◀ ▶ changent de page, ▲ ▼ font défiler dans la page (▼ en bas de page passe à la
+suivante, ▲ en haut revient à la fin de la précédente). « < Liste » revient à la liste ; la dernière page lue de
+chaque fichier est mémorisée (`pdf_state.json`).
+
+- Ajouter des PDF : `tools/push_pdf.sh livre.pdf notes.pdf` (ou `mpremote fs cp x.pdf :pdfs/`). `tools/deploy.sh`
+  copie aussi `python/pdfs/*.pdf` (un PDF d'exemple, `bienvenue.pdf`, est fourni).
+- Le travail est fait par `apps/pdftext.py` (utilisable seul : `pdftext.PDF(chemin).page_text(n)`), qui ne charge
+  jamais le fichier entier : table xref classique ou en flux, flux d'objets (PDF 1.5+), Flate/ASCII85/ASCIIHex,
+  polices WinAnsi/MacRoman/`/Differences` et polices composites avec table `/ToUnicode` (Word, Chrome, LibreOffice,
+  LaTeX...). Seule la page affichée est décompressée.
+- Guillemets typographiques, tirets, ligatures (ﬁ) et € sont convertis en équivalents de la police de l'écran
+  (`'`, `"`, `-`, `fi`, `EUR`) ; les caractères hors Latin-1 (cyrillique, grec, CJK dans un PDF) s'affichent en `?`.
+- Messages affichés : PDF chiffré (non géré), illisible, page sans texte (scan/image), texte non décodable (police
+  composite sans `/ToUnicode`), page tronquée au-delà de ~120 Ko de contenu.
+- Si l'ouverture échoue avec une `MemoryError` sur la carte (compilation de `pdftext.py` en RAM), précompilez-le :
+  `build/micropython/mpy-cross/build/mpy-cross python/apps/pdftext.py` puis copiez `pdftext.mpy` dans `:apps/`
+  et supprimez `pdftext.py` de la carte.
 
 ## Traduire l'interface (i18n)
 
@@ -150,6 +171,9 @@ Utilisez `tap()` **ou** `touch()` dans une même boucle, pas les deux.
   la liste (le nouvel élément ajouté est affiché automatiquement) ; texte tronqué avec « .. » plutôt que de
   passer sous le bouton ×, description longue coupée par « ... » ; sauvegarde atomique (`notes_data.json.tmp`
   puis renommage) : une coupure en pleine écriture ne perd plus les notes.
+- PDF : texte seul (pas d'images ni de mise en page, colonnes lues dans l'ordre du fichier) ; pas de PDF chiffrés, pas
+  de reconstruction d'une table xref cassée ; au plus 15 000 objets par fichier (la table xref tient en RAM) ; non testé
+  sur la vraie carte (validé sur le simulateur avec PDF de reportlab, fpdf2 et pikepdf).
 - Icônes : les 8 PNG fournis (`assets/icons/`) sont déjà convertis en `phone/icons_data.c` par
   `tools/gen_icons.py` (44x44, coins transparents) - relancez ce script si vous changez les images.
 
