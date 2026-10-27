@@ -1,0 +1,10 @@
+# Produits de compilation : régénérés par tools/build_sim.sh / build_firmware.sh
+build/micropython/ports/*/build-*/
+build/micropython/mpy-cross/build/
+
+# Bytecode Python (CPython) généré à l'exécution des outils
+__pycache__/
+*.pyc
+
+# Environnement Python local créé par tools/setup-deps.sh tools
+.venv/

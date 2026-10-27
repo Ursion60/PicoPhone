@@ -32,10 +32,7 @@ jobs:
         run: tools/setup-deps.sh sim
 
       - name: Compilation du simulateur
-        run: |
-          # Les objets compilés versionnés ont l'horodatage du checkout : make les croirait à jour.
-          rm -rf build/micropython/ports/unix/build-standard build/micropython/mpy-cross/build
-          tools/build_sim.sh
+        run: tools/build_sim.sh
 
       - name: Compilation MicroPython des applis (mpy-cross)
         working-directory: python
