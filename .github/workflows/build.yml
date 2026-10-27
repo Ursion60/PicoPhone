@@ -1,0 +1,130 @@
+# CI/CD PicoPhone : simulateur SDL2 + tests, firmware RP2350B, publication sur tag v*.
+name: Build
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Commit MicroPython identique à la copie de build/micropython (genhdr/mpversion.h : 9a3a0c0).
+  # Le firmware a besoin d'un vrai clone git : la copie versionnée n'a pas les sous-modules (pico-sdk...).
+  MPY_REF: 9a3a0c0d5ea946a4a1b6ff0e3f3087c8adbcac01
+
+jobs:
+  simulateur:
+    name: Simulateur SDL2 + tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Dépendances
+        run: tools/setup-deps.sh sim
+
+      - name: Compilation du simulateur
+        run: |
+          # Les objets compilés versionnés ont l'horodatage du checkout : make les croirait à jour.
+          rm -rf build/micropython/ports/unix/build-standard build/micropython/mpy-cross/build
+          tools/build_sim.sh
+
+      - name: Compilation MicroPython des applis (mpy-cross)
+        working-directory: python
+        run: |
+          for f in *.py apps/*.py; do
+            ../build/micropython/mpy-cross/build/mpy-cross -o /dev/null "$f"
+          done
+
+      - name: Tests d'intégration
+        working-directory: python
+        env:
+          SDL_VIDEODRIVER: dummy
+        run: |
+          MPY=../build/micropython/ports/unix/build-standard/micropython
+          rc=0
+          for test in ../host/test_*.py; do
+            echo "::group::$test"
+            timeout 300 "$MPY" "$test" || { echo "::error::échec de $test"; rc=1; }
+            echo "::endgroup::"
+          done
+          exit $rc
+
+      - name: Captures d'écran
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: captures-simulateur
+          path: /tmp/*.ppm
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Paquet des applis
+        run: |
+          mkdir -p dist
+          cd python
+          zip -r ../dist/picophone-apps.zip main.py appkit.py i18n.py apps/*.py pdfs
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: picophone-apps
+          path: dist/picophone-apps.zip
+
+  firmware:
+    name: Firmware RP2350B
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Dépendances
+        run: tools/setup-deps.sh sim firmware
+
+      - name: Clone de MicroPython
+        run: |
+          git init -q "$RUNNER_TEMP/micropython"
+          cd "$RUNNER_TEMP/micropython"
+          git remote add origin https://github.com/micropython/micropython
+          git fetch -q --depth 1 origin "$MPY_REF"
+          git checkout -q FETCH_HEAD
+
+      - name: Compilation du firmware
+        run: MPY_DIR="$RUNNER_TEMP/micropython" tools/build_firmware.sh
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: firmware-uf2
+          path: firmware/phone_core2350b.uf2
+
+  release:
+    name: Publication
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [simulateur, firmware]
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: firmware-uf2
+          path: dist
+      - uses: actions/download-artifact@v4
+        with:
+          name: picophone-apps
+          path: dist
+
+      - name: Release GitHub
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" --repo "$GITHUB_REPOSITORY" \
+            --title "$GITHUB_REF_NAME" --generate-notes \
+            dist/phone_core2350b.uf2 dist/picophone-apps.zip
