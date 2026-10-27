@@ -154,6 +154,17 @@ Utilisez `tap()` **ou** `touch()` dans une même boucle, pas les deux.
   sans elle, gen_font.py le signale et ces langues s'afficheront en `?`.
 - `host/sim.c` : simulateur de l'écran d'accueil seul (compile en 1 s, sans MicroPython). `host/preview.c` : export .ppm.
 
+## Intégration continue
+
+`.github/workflows/build.yml` (GitHub Actions), à chaque push sur `main`, pull request ou lancement manuel :
+- **simulateur** : `tools/build_sim.sh`, compilation des applis avec `mpy-cross`, tous les `host/test_*.py`
+  (`SDL_VIDEODRIVER=dummy`) ; artefacts `captures-simulateur` (`/tmp/*.ppm`) et `picophone-apps` (fichiers copiés par `deploy.sh`) ;
+- **firmware** : `tools/build_firmware.sh` sur un clone de MicroPython épinglé (`MPY_REF`, même commit que
+  `build/micropython`) ; artefact `firmware-uf2`.
+
+Un tag `v*` (ex. `git tag v0.2 && git push origin v0.2`) crée en plus une release GitHub avec le `.uf2` et le zip des applis.
+Le firmware est seulement compilé : la CI ne le teste pas sur la carte.
+
 ## Limites connues
 
 - Non testé sur la vraie carte (pas de matériel ici) : le firmware compile et le module a été exécuté sur le simulateur PC,
