@@ -1,4 +1,9 @@
-# phone - interface de téléphone, applis en MicroPython (Waveshare Core2350B)
+# PicoPhone
+
+[![Build](https://github.com/Ursion60/PicoPhone/actions/workflows/build.yml/badge.svg)](https://github.com/Ursion60/PicoPhone/actions/workflows/build.yml)
+
+Interface de téléphone tactile pour la **Waveshare Core2350B** (RP2350B, écran 240x320) : les applis sont écrites
+en MicroPython, le dessin et l'écran d'accueil sont en C, et tout tourne aussi sur PC dans un simulateur SDL2.
 
 ```
  applis Python (apps/*.py)      <- vous écrivez ça, sur la carte, sans recompiler
@@ -14,26 +19,73 @@ Toucher une icône de l'accueil lance `apps/<id>.py`, « Retour » revient à l'
 Si le fichier n'existe pas, un écran « pas encore disponible » s'affiche ; si une appli plante,
 le lanceur affiche l'erreur et reste en vie.
 
+**Sommaire** : [Démarrage rapide](#1-tester-sur-pc-recommandé-dabord) · [Sur la carte](#2-sur-la-carte) ·
+[Écrire une appli](#3-écrire-une-appli) · [Lecteur PDF](#lecteur-pdf) · [i18n](#traduire-linterface-i18n) ·
+[API `phone`](#api-du-module-phone) · [Outils](#outils) · [CI](#intégration-continue) ·
+[Contribuer](#contribuer) · [Limites](#limites-connues) · [Dépannage](#dépannage)
+
+## Organisation du dépôt
+
+| Dossier | Contenu |
+|---|---|
+| `python/` | `main.py` (lanceur), `appkit.py` (boucle d'appli, widgets, clavier), `i18n.py` (traductions), `apps/` (applis), `pdfs/` (PDF d'exemple) |
+| `phone/` | module C `phone` : rendu (`gfx.c`), accueil (`ui.c`), polices et icônes générées, binding MicroPython (`modphone.c`), HAL carte (`hal_rp2.c`) et PC (`hal_sdl.c`), brochage (`config.h`) |
+| `host/` | tests d'intégration `test_*.py` (simulateur), fixtures PDF, mini-simulateurs C de l'accueil |
+| `tools/` | installation des dépendances, build simulateur/firmware, déploiement, génération des polices/icônes |
+| `firmware/` | firmware précompilé `phone_core2350b.uf2` |
+| `assets/icons/` | PNG sources des icônes de l'accueil |
+| `build/micropython/` | copie de MicroPython (commit `9a3a0c0`) utilisée par `tools/build_sim.sh` |
+
 ## 1. Tester sur PC (recommandé d'abord)
 
 ```bash
 tools/setup-deps.sh sim tools    # détecte apt/dnf/pacman/zypper/apk/xbps/emerge et installe tout
-tools/build_sim.sh               # clone MicroPython et le compile avec le module (~2 min)
+tools/build_sim.sh               # compile MicroPython (build/micropython, cloné s'il manque) avec le module phone
 cd python && ../build/micropython/ports/unix/build-standard/micropython main.py
 ```
 
-Souris = doigt, Échap pour quitter. Le test automatique (lanceur -> appli -> Retour, avec captures
-`/tmp/phone_*.ppm`) : `cd python && SDL_VIDEODRIVER=dummy <micropython> ../host/test_flow.py` (idem pour `test_notes.py`, `test_notes_scroll.py`, `test_keyboard.py`, `test_i18n.py`, `test_pdf.py`).
+Souris = doigt, Échap pour quitter.
+
+**Tests automatiques** (sans fenêtre, captures d'écran dans `/tmp/*.ppm`) :
+
+```bash
+cd python
+MPY=../build/micropython/ports/unix/build-standard/micropython
+for t in ../host/test_*.py; do SDL_VIDEODRIVER=dummy "$MPY" "$t" || echo "ÉCHEC : $t"; done
+```
+
+| Test | Vérifie |
+|---|---|
+| `test_flow.py` | lanceur -> appli -> Retour, appli absente, appli qui plante |
+| `test_notes.py` / `test_notes_scroll.py` | tâches et notes, défilement, sauvegarde atomique, fichier corrompu, migration |
+| `test_keyboard.py` | clavier AZERTY, pages 123 et accents |
+| `test_i18n.py` | changement de langue, persistance, tap réel dans Paramètres |
+| `test_pdf.py` | lecteur PDF (xref, flux, polices, accents, ligatures) |
 
 ## 2. Sur la carte
 
 1. Maintenir **BOOT** en branchant l'USB-C, copier `firmware/phone_core2350b.uf2` sur le lecteur RPI-RP2 qui apparaît
-   (carte MicroPython `WAVESHARE_RP2350B_CORE` + module `phone` ; recompilable avec `tools/build_firmware.sh`).
-2. `tools/setup-deps.sh tools udev` (une fois : venv avec mpremote + droits USB sans sudo), puis `tools/deploy.sh` : copie `main.py`, `appkit.py` et `apps/` sur la carte.
+   (carte MicroPython `WAVESHARE_RP2350B_CORE` + module `phone`).
+2. `tools/setup-deps.sh tools udev` (une fois : venv avec mpremote + droits USB sans sudo), puis `tools/deploy.sh` :
+   copie `main.py`, `appkit.py`, `i18n.py`, `apps/` et `pdfs/` sur la carte, puis la redémarre.
 3. Au démarrage, `main.py` s'exécute tout seul. Ctrl-C dans `mpremote` pour reprendre la main (REPL).
 
 Broches et hypothèses matérielles : `phone/config.h` (écran **ILI9341**, tactile **FT6336U** - à adapter si votre module
 est différent). Le module s'approprie `spi0` et `i2c0` : évitez `machine.SPI(0)` / `machine.I2C(0)` dans vos scripts.
+
+### Recompiler le firmware
+
+`firmware/phone_core2350b.uf2` est déjà fourni. Pour le recompiler, la copie `build/micropython` ne suffit pas (elle
+n'a pas les sous-modules du port RP2, dont `pico-sdk`) : utilisez un vrai clone git de MicroPython, au même commit
+que celui de la CI (`MPY_REF` dans `.github/workflows/build.yml`) :
+
+```bash
+tools/setup-deps.sh sim firmware
+git init ~/micropython && cd ~/micropython
+git remote add origin https://github.com/micropython/micropython
+git fetch --depth 1 origin 9a3a0c0d5ea946a4a1b6ff0e3f3087c8adbcac01 && git checkout FETCH_HEAD
+cd - && MPY_DIR=~/micropython tools/build_firmware.sh     # -> firmware/phone_core2350b.uf2
+```
 
 ### Compatibilité Linux
 
@@ -41,7 +93,7 @@ Les scripts ne supposent aucune distribution : `tools/setup-deps.sh [sim] [firmw
 bons paquets pour Debian/Ubuntu, Fedora, Arch, openSUSE, Alpine, Void et Gentoo. Python (Pillow, mpremote) est
 installé dans un venv local `.venv/` (évite l'erreur « externally-managed-environment » de pip sur les distros
 récentes) que les scripts `tools/*.sh` activent seuls. `gen_font.py` trouve DejaVu/Noto CJK via `fc-match`, quel que
-soit le dossier de polices de la distro. Testé : Ubuntu 24.04 (compilation du simulateur + 4 tests automatiques).
+soit le dossier de polices de la distro. Vérifié en continu par la CI sur Ubuntu 24.04 (simulateur, 6 tests, firmware).
 
 - **Carte non reconnue / `Permission denied` sur `/dev/ttyACM0`** : `tools/setup-deps.sh udev` (règle `uaccess`,
   désactive aussi ModemManager sur la carte), ou, sans systemd, ajoutez-vous au groupe `dialout` (Debian/Fedora)
@@ -72,13 +124,22 @@ class App(appkit.App):
             phone.text_c("Touché !", 120, 270, BLACK, phone.SMALL)
 ```
 
-Exemples fournis : `apps/notes.py` (deux onglets - Tâches à cocher et Notes en titre+description,
-avec ajout/consultation/édition/suppression au clavier tactile, sauvegardé sur la carte dans
-`notes_data.json` : survit à un redémarrage) et `apps/parametres.py` (luminosité, langue, infos
-système). `appkit.prompt_text("Titre")` ouvre un
-clavier AZERTY plein écran et renvoie le texte saisi, ou `None` si Annuler :
-- page lettres : majuscule (^), page chiffres/symboles (123), **page accents (icône « é »)**
-  pour taper é/è/ê/ë/à/â/ä/ù/û/ü/ï/î/ô/ö/ç/ñ quelle que soit la langue de l'interface.
+`on_tick(self, ms)` (facultatif) est appelé ~60 fois par seconde. La barre de titre et le bouton Retour sont gérés
+par `appkit` ; pour un texte traduit, définissez `title_key` au lieu de `title` (voir [i18n](#traduire-linterface-i18n)).
+
+Exemples fournis :
+- `apps/notes.py` : deux onglets - Tâches à cocher et Notes en titre+description, avec
+  ajout/consultation/édition/suppression au clavier tactile, sauvegardé dans `notes_data.json` (survit à un redémarrage) ;
+- `apps/parametres.py` : luminosité, langue, infos système ;
+- `apps/lecteur_pdf.py` : voir ci-dessous.
+
+`appkit.prompt_text("Titre")` ouvre un clavier AZERTY plein écran et renvoie le texte saisi, ou `None` si Annuler :
+page lettres avec majuscule (^), page chiffres/symboles (123), **page accents (icône « é »)** pour taper
+é/è/ê/ë/à/â/ä/ù/û/ü/ï/î/ô/ö/ç/ñ quelle que soit la langue de l'interface.
+
+**Ajouter une icône à l'accueil** : la table des applis est dans `phone/ui.c` (`ui_init`) ; il faut aussi une clé de
+titre dans `python/i18n.py`, une image dans `assets/icons/` (convertie par `tools/gen_icons.py`) et le fichier
+`python/apps/<id>.py`.
 
 ## Lecteur PDF
 
@@ -121,7 +182,7 @@ de `i18n.STRINGS`) au lieu de `title`, et en appelant `i18n.t(...)` dans son `dr
 **Ajouter une chaîne à traduire** : ajoutez une entrée à `i18n.STRINGS` dans `python/i18n.py` (une
 ligne par clé, une colonne par langue), puis utilisez `i18n.t("votre_clé")` où il faut. Si le texte
 contient du japonais/chinois, relancez `tools/gen_font.py` pour embarquer les nouveaux glyphes
-(voir plus bas) - sinon ces caractères s'afficheront en `?`.
+(voir [Outils](#outils)) - sinon ces caractères s'afficheront en `?`.
 
 **Ajouter une langue** : ajoutez son code à `i18n.LANGS`, son nom (dans SA langue) à
 `i18n.LANG_NAMES`, et une colonne dans chaque entrée de `i18n.STRINGS`.
@@ -147,16 +208,19 @@ Utilisez `tap()` **ou** `touch()` dans une même boucle, pas les deux.
 
 ## Outils
 
-- `tools/gen_font.py` : régénère `phone/font_data.c` (DejaVu Sans Bold 13/10/9 px, ASCII+Latin-1) et
-  embarque aussi les glyphes CJK (japonais/chinois) nécessaires aux traductions de `python/i18n.py`,
-  rendus avec une police Noto Sans CJK - **uniquement les caractères réellement utilisés dans
-  i18n.py** (pas une police CJK complète : trop volumineuse). (`tools/setup-deps.sh tools` installe Pillow et les polices Noto Sans CJK) pour que le japonais/chinois s'affichent -
-  sans elle, gen_font.py le signale et ces langues s'afficheront en `?`.
+- `tools/gen_font.py` : régénère `phone/font_data.c` (DejaVu Sans Bold 13/10/9 px, ASCII+Latin-1) et y embarque
+  les glyphes CJK (japonais/chinois) des traductions de `python/i18n.py`, rendus avec Noto Sans CJK - **uniquement
+  les caractères réellement utilisés** (une police CJK complète serait trop volumineuse). Pillow et les polices sont
+  installés par `tools/setup-deps.sh tools` ; sans Noto Sans CJK, le script le signale et ces langues s'affichent en `?`.
+- `tools/gen_icons.py` : convertit `assets/icons/*.png` en `phone/icons_data.c` (44x44, coins transparents).
+- `phone/font_data.c` et `phone/icons_data.c` sont **générés** : ne les modifiez pas à la main, relancez le script.
+- `tools/push_pdf.sh` : copie des PDF dans `:pdfs/` sur la carte.
 - `host/sim.c` : simulateur de l'écran d'accueil seul (compile en 1 s, sans MicroPython). `host/preview.c` : export .ppm.
 
 ## Intégration continue
 
-`.github/workflows/build.yml` (GitHub Actions), à chaque push sur `main`, pull request ou lancement manuel :
+`.github/workflows/build.yml` (GitHub Actions) tourne à chaque push sur `main` ou `develop`, à chaque pull request
+et sur lancement manuel (onglet **Actions** -> *Build* -> *Run workflow*) :
 - **simulateur** : `tools/build_sim.sh`, compilation des applis avec `mpy-cross`, tous les `host/test_*.py`
   (`SDL_VIDEODRIVER=dummy`) ; artefacts `captures-simulateur` (`/tmp/*.ppm`) et `picophone-apps` (fichiers copiés par `deploy.sh`) ;
 - **firmware** : `tools/build_firmware.sh` sur un clone de MicroPython épinglé (`MPY_REF`, même commit que
@@ -164,6 +228,27 @@ Utilisez `tap()` **ou** `touch()` dans une même boucle, pas les deux.
 
 Un tag `v*` (ex. `git tag v0.2 && git push origin v0.2`) crée en plus une release GitHub avec le `.uf2` et le zip des applis.
 Le firmware est seulement compilé : la CI ne le teste pas sur la carte.
+
+## Contribuer
+
+Branches :
+- `main` : version stable, ne reçoit que des pull requests depuis `develop` ;
+- `develop` : intégration des modifications en cours ;
+- `tlanguedoc-<nom>-modif` : une branche par modification, créée depuis `develop` (ex. `tlanguedoc-readme-modif`).
+
+```bash
+git switch develop && git pull
+git switch -c tlanguedoc-<nom>-modif
+# ... modifications, tests sur le simulateur (section 1) ...
+git commit -am "Description de la modification"
+git push -u origin tlanguedoc-<nom>-modif
+```
+
+1. Ouvrez une pull request `tlanguedoc-<nom>-modif` -> `develop` ; fusionnez-la quand la CI est verte.
+2. Ouvrez ensuite une pull request `develop` -> `main` pour publier.
+
+Avant d'ouvrir une pull request : lancez les tests du simulateur, gardez chaque texte visible dans `i18n.py` (6 langues)
+et précisez ce qui a été testé sur simulateur, seulement compilé en firmware, ou vérifié sur la vraie carte.
 
 ## Limites connues
 
@@ -186,13 +271,13 @@ Le firmware est seulement compilé : la CI ne le teste pas sur la carte.
   de reconstruction d'une table xref cassée ; au plus 15 000 objets par fichier (la table xref tient en RAM) ; non testé
   sur la vraie carte (validé sur le simulateur avec PDF de reportlab, fpdf2 et pikepdf).
 - Icônes : les 8 PNG fournis (`assets/icons/`) sont déjà convertis en `phone/icons_data.c` par
-  `tools/gen_icons.py` (44x44, coins transparents) - relancez ce script si vous changez les images.
+  `tools/gen_icons.py` - relancez ce script si vous changez les images.
 
 ## Dépannage
 
 **`Erreur de segmentation (core dumped)` au lancement du simulateur PC** : observé sur des systèmes
 avec un pilote NVIDIA propriétaire, en conteneur (toolbox/distrobox) sous Wayland. Deux causes
-possibles, toutes deux dans ce dossier :
+possibles, toutes deux corrigées dans `phone/hal_sdl.c` :
 1. Sous Wayland, quand le compositeur ne gère pas nativement les bordures, SDL dessine la barre de
    titre via `libdecor`, qui utilise elle-même OpenGL/EGL en interne - et c'est cette étape,
    indépendante de tout rendu applicatif, qui peut planter dans le pilote GPU. `phone/hal_sdl.c`
@@ -204,9 +289,11 @@ possibles, toutes deux dans ce dossier :
    compatibilité SDL2-sur-SDL3 de Fedora, une fois lié dans un gros binaire comme MicroPython), et
    dessine directement sur la surface de la fenêtre.
 
-Si votre copie est plus ancienne, reconstruisez (`rm -rf build && tools/build_sim.sh`). Si ça
+Si votre build est plus ancien, recompilez le simulateur sans effacer la copie de MicroPython :
+`rm -rf build/micropython/ports/unix/build-standard && tools/build_sim.sh` (un `rm -rf build` la supprimerait et
+`build_sim.sh` clonerait alors la dernière version de MicroPython, non épinglée). Si ça
 plante encore, un backtrace précis reste le plus efficace pour avancer : `coredumpctl gdb` juste
 après le plantage (Fedora capture le core automatiquement), puis `bt` une fois dans gdb ; ou `gdb
 --batch -ex run -ex bt --args ../build/micropython/ports/unix/build-standard/micropython main.py`.
-En dernier recours, `SDL_VIDEO_DRIVER=x11` et/ou forcer une fenêtre sans bordure évitent tout
+En dernier recours, `SDL_VIDEODRIVER=x11` et/ou forcer une fenêtre sans bordure évitent tout
 recours à `libdecor`.
