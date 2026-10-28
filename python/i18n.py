@@ -87,6 +87,19 @@ STRINGS = {
     "settings_language":   {"FR": "Langue",     "EN": "Language",   "ES": "Idioma",  "AL": "Sprache",    "JP": "言語",   "CN": "语言"},
     "settings_system":     {"FR": "Système",    "EN": "System",     "ES": "Sistema", "AL": "System",     "JP": "システム", "CN": "系统"},
     "settings_ram_free":   {"FR": "RAM libre",  "EN": "Free RAM",   "ES": "RAM libre","AL": "Freier RAM", "JP": "空きRAM", "CN": "可用内存"},
+
+    # EDT (emploi du temps). Jours et mois : une seule clé chacun, mots séparés par une espace
+    # (7 jours à partir du lundi, 12 mois) - moins de RAM permanente qu'une clé par mot.
+    "edt_weekdays":   {"FR": "Lun Mar Mer Jeu Ven Sam Dim", "EN": "Mon Tue Wed Thu Fri Sat Sun", "ES": "Lun Mar Mié Jue Vie Sáb Dom", "AL": "Mo Di Mi Do Fr Sa So", "JP": "月 火 水 木 金 土 日", "CN": "周一 周二 周三 周四 周五 周六 周日"},
+    "edt_months":     {"FR": "janv. févr. mars avr. mai juin juil. août sept. oct. nov. déc.", "EN": "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec", "ES": "ene feb mar abr may jun jul ago sep oct nov dic", "AL": "Jan Feb Mär Apr Mai Jun Jul Aug Sep Okt Nov Dez", "JP": "1月 2月 3月 4月 5月 6月 7月 8月 9月 10月 11月 12月", "CN": "1月 2月 3月 4月 5月 6月 7月 8月 9月 10月 11月 12月"},
+    "edt_date_fmt":   {"FR": "{wd} {d} {m}", "EN": "{wd} {m} {d}", "ES": "{wd} {d} {m}", "AL": "{wd} {d}. {m}", "JP": "{m}{d}日({wd})", "CN": "{m}{d}日 {wd}"},
+    "edt_none":       {"FR": "Aucun emploi du temps", "EN": "No timetable", "ES": "Sin horario", "AL": "Kein Stundenplan", "JP": "時間割がありません", "CN": "没有课程表"},
+    "edt_hint":       {"FR": "Synchronisez-le depuis le PC :", "EN": "Sync it from the PC:", "ES": "Sincronízalo desde el PC:", "AL": "Vom PC aus synchronisieren:", "JP": "PCから同期してください：", "CN": "请从电脑同步："},
+    "edt_empty":      {"FR": "Pas de cours", "EN": "No lessons", "ES": "Sin clases", "AL": "Kein Unterricht", "JP": "授業なし", "CN": "没有课程"},
+    "edt_bad_day":    {"FR": "Données illisibles", "EN": "Unreadable data", "ES": "Datos ilegibles", "AL": "Daten unlesbar", "JP": "データを読めません", "CN": "数据无法读取"},
+    "edt_cancelled":  {"FR": "Annulé", "EN": "Cancelled", "ES": "Cancelado", "AL": "Entfällt", "JP": "休講", "CN": "停课"},
+    "edt_synced":     {"FR": "Synchro : %s", "EN": "Synced: %s", "ES": "Sincro: %s", "AL": "Sync: %s", "JP": "同期: %s", "CN": "同步: %s"},
+    "edt_date_unset": {"FR": "Date non réglée", "EN": "Date not set", "ES": "Fecha sin ajustar", "AL": "Datum nicht gesetzt", "JP": "日付未設定", "CN": "日期未设置"},
 }
 
 _current = _FALLBACK

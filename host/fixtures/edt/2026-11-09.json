@@ -1,0 +1,58 @@
+{
+ "lessons": [
+  {
+   "start": "08:00",
+   "end": "08:55",
+   "subject": "Mathématiques",
+   "room": "B12",
+   "teacher": "M. Dupont",
+   "cancelled": false,
+   "note": ""
+  },
+  {
+   "start": "09:00",
+   "end": "09:55",
+   "subject": "Français",
+   "room": "A03",
+   "teacher": "Mme Martin",
+   "cancelled": true,
+   "note": "Cours annulé"
+  },
+  {
+   "start": "10:10",
+   "end": "11:05",
+   "subject": "Anglais LV1",
+   "room": "C21",
+   "teacher": "Mr Smith",
+   "cancelled": false,
+   "note": ""
+  },
+  {
+   "start": "11:10",
+   "end": "12:05",
+   "subject": "Histoire-Géographie",
+   "room": "A01",
+   "teacher": "Mme Roux",
+   "cancelled": false,
+   "note": ""
+  },
+  {
+   "start": "14:00",
+   "end": "14:55",
+   "subject": "EPS",
+   "room": "Gymnase",
+   "teacher": "M. Leroy",
+   "cancelled": false,
+   "note": ""
+  },
+  {
+   "start": "15:00",
+   "end": "15:55",
+   "subject": "EPS",
+   "room": "Gymnase",
+   "teacher": "M. Leroy",
+   "cancelled": false,
+   "note": ""
+  }
+ ]
+}

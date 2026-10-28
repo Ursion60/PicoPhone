@@ -1,0 +1,31 @@
+{
+ "lessons": [
+  {
+   "start": "08:00",
+   "end": "08:55",
+   "subject": "Anglais LV1",
+   "room": "C21",
+   "teacher": "Mr Smith",
+   "cancelled": false,
+   "note": ""
+  },
+  {
+   "start": "09:00",
+   "end": "09:55",
+   "subject": "Technologie",
+   "room": "T1",
+   "teacher": "M. Moreau",
+   "cancelled": false,
+   "note": ""
+  },
+  {
+   "start": "10:10",
+   "end": "11:05",
+   "subject": "Physique-Chimie",
+   "room": "L2",
+   "teacher": "Mme Bernard",
+   "cancelled": false,
+   "note": ""
+  }
+ ]
+}

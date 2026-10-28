@@ -1,9 +1,10 @@
 #!/usr/bin/env sh
 # Installe les dépendances sur n'importe quelle distribution Linux courante.
-#   tools/setup-deps.sh [sim] [firmware] [tools] [udev]     (défaut : sim tools)
+#   tools/setup-deps.sh [sim] [firmware] [tools] [pronote] [udev]     (défaut : sim tools)
 #     sim       gcc, make, git, pkg-config, SDL2 (dev)   -> tools/build_sim.sh
 #     firmware  + cmake, toolchain arm-none-eabi          -> tools/build_firmware.sh
 #     tools     polices DejaVu/Noto CJK + venv Python (.venv : pillow, mpremote)
+#     pronote   pronotepy dans le venv .venv (après tools) -> tools/sync_pronote.py (synchro de l'EDT)
 #     udev      règle d'accès USB à la carte (sans sudo ni groupe dialout)
 # Détecte le gestionnaire de paquets (apt, dnf, pacman, zypper, apk, xbps, emerge).
 set -eu
@@ -70,6 +71,10 @@ for what in "$@"; do
         "$HERE/.venv/bin/pip" install --quiet --upgrade pip pillow mpremote
         echo ">> venv prêt : . $HERE/.venv/bin/activate   (ou utilisez directement tools/*.sh, qui l'activent seuls)"
       fi ;;
+    pronote)
+      [ -x "$HERE/.venv/bin/pip" ] || python3 -m venv "$HERE/.venv"
+      "$HERE/.venv/bin/pip" install --quiet --upgrade pip pronotepy mpremote
+      echo ">> pronotepy installé dans $HERE/.venv : tools/sync_pronote.py --help" ;;
     udev)
       $SUDO install -m 644 "$HERE/tools/99-pico.rules" /etc/udev/rules.d/99-pico.rules
       $SUDO udevadm control --reload-rules && $SUDO udevadm trigger || true

@@ -1,0 +1,31 @@
+{
+ "lessons": [
+  {
+   "start": "08:00",
+   "end": "08:55",
+   "subject": "Espagnol LV2",
+   "room": "C14",
+   "teacher": "Mme Garcia",
+   "cancelled": false,
+   "note": ""
+  },
+  {
+   "start": "09:00",
+   "end": "09:55",
+   "subject": "Mathématiques",
+   "room": "B12",
+   "teacher": "M. Dupont",
+   "cancelled": false,
+   "note": ""
+  },
+  {
+   "start": "10:10",
+   "end": "11:05",
+   "subject": "Français",
+   "room": "A03",
+   "teacher": "Mme Martin",
+   "cancelled": false,
+   "note": ""
+  }
+ ]
+}
