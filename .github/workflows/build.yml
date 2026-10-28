@@ -55,6 +55,32 @@ jobs:
           done
           exit $rc
 
+      - name: Tests depuis les modules précompilés (.mpy, comme sur la carte)
+        env:
+          SDL_VIDEODRIVER: dummy
+        run: |
+          ROOT="$PWD"
+          B="$RUNNER_TEMP/carte"
+          mkdir -p "$B/python/apps" "$B/python/pdfs"
+          ln -s "$ROOT/host" "$B/host"
+          cp python/main.py "$B/python/"
+          cp python/apps/__init__.py "$B/python/apps/"
+          cp python/pdfs/*.pdf "$B/python/pdfs/"
+          cd python
+          for f in i18n.py appkit.py apps/*.py; do
+            [ "$f" = apps/__init__.py ] && continue
+            "$ROOT/build/micropython/mpy-cross/build/mpy-cross" -o "$B/python/${f%.py}.mpy" "$f"
+          done
+          cd "$B/python"
+          MPY="$ROOT/build/micropython/ports/unix/build-standard/micropython"
+          rc=0
+          for test in ../host/test_*.py; do
+            echo "::group::$test (.mpy)"
+            timeout 300 "$MPY" "$test" || { echo "::error::échec de $test en .mpy"; rc=1; }
+            echo "::endgroup::"
+          done
+          exit $rc
+
       - name: Captures d'écran
         if: always()
         uses: actions/upload-artifact@v4
@@ -100,6 +126,15 @@ jobs:
         with:
           name: firmware-uf2
           path: firmware/phone_core2350b.uf2
+
+      # Variante expérimentale (jamais exécutée sur la carte) : on vérifie seulement qu'elle compile
+      # et que le framebuffer est bien placé en PSRAM (0x11000000...).
+      - name: Compilation de contrôle, framebuffer en PSRAM
+        run: |
+          PHONE_FB_IN_PSRAM=1 MPY_DIR="$RUNNER_TEMP/micropython" tools/build_firmware.sh
+          sym="$(arm-none-eabi-nm "$RUNNER_TEMP/micropython/ports/rp2/build-WAVESHARE_RP2350B_CORE-fbpsram/firmware.elf" | grep ' b fb$')"
+          echo "$sym"
+          case "$sym" in 11*) ;; *) echo "::error::fb n'est pas en PSRAM"; exit 1 ;; esac
 
   release:
     name: Publication

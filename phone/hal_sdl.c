@@ -49,6 +49,7 @@ void hal_init(void) {
 }
 
 void hal_backlight(uint8_t level) { (void)level; }
+bool hal_fb_ready(void) { return true; }
 
 void hal_flush(const uint16_t *fb, int x0, int y0, int x1, int y1) {
     SDL_Surface *surf = SDL_GetWindowSurface(win);

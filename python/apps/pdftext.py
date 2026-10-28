@@ -755,11 +755,18 @@ class _Interp:
 
     def result(self):
         text = "".join(self.out)
-        keep = []
+        self.out = None
         for ch in text:
-            if ch == "\n" or ch >= " ":
-                keep.append(ch)
-        return "".join(keep).strip()
+            if ch < " " and ch != "\n":
+                break
+        else:
+            return text.strip()
+        # caractères de contrôle (rare) : filtrage par blocs, une liste d'un élément par caractère
+        # coûterait 8 octets par caractère de la page en RAM
+        parts = []
+        for i in range(0, len(text), 256):
+            parts.append("".join([ch for ch in text[i:i + 256] if ch == "\n" or ch >= " "]))
+        return "".join(parts).strip()
 
 
 # ---------------------------------------------------------------------------

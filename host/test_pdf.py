@@ -152,6 +152,23 @@ for code in i18n.LANGS:
         assert i18n.STRINGS[key].get(code), (key, code)
 print("10. traductions complètes : OK")
 
+# ---------- 11. Texte d'une page : caractères de contrôle filtrés sans liste d'un élément par caractère ----------
+from apps import pdftext
+
+
+def page_result(parts):
+    it = pdftext._Interp(None, {})
+    it.out = list(parts)
+    return it.result()
+
+
+assert page_result(["Bonjour", " ", "monde\n", "suite"]) == "Bonjour monde\nsuite"      # aucun contrôle
+assert page_result(["  a\x00b\tc\x07\nd  "]) == "abc\nd"                                  # contrôles retirés
+big = "é" * 300 + "\x01" + "x" * 300 + "\n" + "y" * 700                                  # plusieurs blocs de 256
+assert page_result([big]) == "é" * 300 + "x" * 300 + "\n" + "y" * 700
+assert page_result([]) == ""
+print("11. filtrage des caractères de contrôle : OK")
+
 try:
     os.remove("pdf_state.json")
 except OSError:

@@ -67,7 +67,11 @@ for t in ../host/test_*.py; do SDL_VIDEODRIVER=dummy "$MPY" "$t" || echo "ÉCHEC
 1. Maintenir **BOOT** en branchant l'USB-C, copier `firmware/phone_core2350b.uf2` sur le lecteur RPI-RP2 qui apparaît
    (carte MicroPython `WAVESHARE_RP2350B_CORE` + module `phone`).
 2. `tools/setup-deps.sh tools udev` (une fois : venv avec mpremote + droits USB sans sudo), puis `tools/deploy.sh` :
-   copie `main.py`, `appkit.py`, `i18n.py`, `apps/` et `pdfs/` sur la carte, puis la redémarre.
+   copie `main.py`, `appkit.py`, `i18n.py`, `apps/` et `pdfs/` sur la carte, puis la redémarre. Les modules sont
+   **précompilés en `.mpy`** (mpy-cross, compilé par `tools/build_sim.sh`) : la carte ne compile plus le source à
+   chaque ouverture d'appli, ce qui économise beaucoup de RAM (voir [Mémoire](#mémoire-ram)). Le script vérifie
+   avant d'envoyer que le format `.mpy` est celui du firmware, sinon il envoie les `.py`. `PY=1 tools/deploy.sh`
+   force les sources `.py` (utile pour lire un traceback avec ses numéros de ligne).
 3. Au démarrage, `main.py` s'exécute tout seul. Ctrl-C dans `mpremote` pour reprendre la main (REPL).
 
 Broches et hypothèses matérielles : `phone/config.h` (écran **ILI9341**, tactile **FT6336U** - à adapter si votre module
@@ -86,6 +90,13 @@ git remote add origin https://github.com/micropython/micropython
 git fetch --depth 1 origin 9a3a0c0d5ea946a4a1b6ff0e3f3087c8adbcac01 && git checkout FETCH_HEAD
 cd - && MPY_DIR=~/micropython tools/build_firmware.sh     # -> firmware/phone_core2350b.uf2
 ```
+
+**Option expérimentale : framebuffer en PSRAM.** `PHONE_FB_IN_PSRAM=1 MPY_DIR=~/micropython tools/build_firmware.sh`
+produit `firmware/phone_core2350b_fb_psram.uf2` (sans toucher au firmware par défaut) : les 150 Ko du framebuffer
+vont en PSRAM et le tas MicroPython en SRAM gagne autant (327 Ko -> 477 Ko, mesuré sur l'ELF). `phone.init()` lève
+une `RuntimeError` si la PSRAM n'est pas détectée. **Compilé et vérifié dans l'ELF, jamais exécuté sur la carte** :
+le débit d'affichage (le DMA lit alors dans la PSRAM) reste à mesurer. Pour revenir au firmware stable, flashez
+`phone_core2350b.uf2`.
 
 ### Compatibilité Linux
 
@@ -158,9 +169,9 @@ chaque fichier est mémorisée (`pdf_state.json`).
   (`'`, `"`, `-`, `fi`, `EUR`) ; les caractères hors Latin-1 (cyrillique, grec, CJK dans un PDF) s'affichent en `?`.
 - Messages affichés : PDF chiffré (non géré), illisible, page sans texte (scan/image), texte non décodable (police
   composite sans `/ToUnicode`), page tronquée au-delà de ~120 Ko de contenu.
-- Si l'ouverture échoue avec une `MemoryError` sur la carte (compilation de `pdftext.py` en RAM), précompilez-le :
-  `build/micropython/mpy-cross/build/mpy-cross python/apps/pdftext.py` puis copiez `pdftext.mpy` dans `:apps/`
-  et supprimez `pdftext.py` de la carte.
+- Si l'ouverture échoue avec une `MemoryError` sur la carte (compilation de `pdftext.py` en RAM), vérifiez que
+  `tools/deploy.sh` a bien envoyé des `.mpy` (il l'affiche) : sans cela, un `.py` reste sur la carte et l'emporte
+  sur le `.mpy` du même nom. Le script le supprime tout seul.
 
 ## Traduire l'interface (i18n)
 
@@ -205,6 +216,39 @@ contient du japonais/chinois, relancez `tools/gen_font.py` pour embarquer les no
 
 `appkit` ajoute : palette (`BG`, `BLACK`, `ACCENT`...), `header`, `clear`, `button`, `inside`, la classe `App` et `run`.
 Utilisez `tap()` **ou** `touch()` dans une même boucle, pas les deux.
+
+## Mémoire (RAM)
+
+SRAM du RP2350 : 520 Ko. Mesuré sur l'ELF du firmware par défaut (`arm-none-eabi-size -A`, `arm-none-eabi-nm -S`) :
+
+| Zone | Taille |
+|---|---|
+| Tas MicroPython (SRAM) | ≈ 327 Ko (+ PSRAM si détectée) |
+| Framebuffer `fb` (`gfx.c`) | 150 Ko, dans le `.bss`, donc retiré du tas |
+| Autres `.bss` + `.data` | ≈ 30 Ko |
+| Pile C | 8 Ko |
+
+Le tas commence à la fin du `.bss` : tout ce qui en sort agrandit le tas. Les polices et icônes sont en flash (`const`).
+L'écran Paramètres affiche `gc.mem_free()` (tas Python seulement).
+
+Mesures sur le simulateur (`micropython -X heapsize=<n>k`, plus petit tas avec lequel un cas passe ; ordres de
+grandeur, pas des valeurs de la carte) :
+
+| Cas | Avant | Après |
+|---|---|---|
+| Import de `apps.pdftext` | 160 Ko en `.py` | 32 Ko en `.mpy` |
+| Import de `apps.lecteur_pdf` | 256 Ko | 80 Ko |
+| Page 0 de `host/fixtures/long.pdf` (en `.mpy`) | 256 Ko | 192 Ko (`result()` sans liste par caractère) |
+| Page 0 de `host/fixtures/truetype.pdf` (en `.mpy`) | 208 Ko | 112 Ko |
+
+Mémoire retenue en permanence une fois importé : `i18n` ≈ 25 Ko (6 langues chargées), `appkit` ≈ 9 Ko, `apps.pdftext`
+≈ 23 Ko. Pour mesurer un cas : `micropython -X heapsize=160k script.py`, et descendre depuis un grand tas jusqu'au
+premier échec (la fragmentation rend un test « premier succès en montant » trompeur). `host/test_notes_scroll.py`
+réclame un gros tas parce que le test relit une capture de 230 Ko, pas à cause de l'appli.
+
+Pistes non faites : ne garder en RAM que la langue active de `i18n` (≈ 20 Ko, mais change le format « une colonne
+par langue » et `tools/gen_font.py`) ; figer les modules dans le firmware (flash au lieu de RAM, mais plus de
+déploiement sans recompiler).
 
 ## Outils
 
@@ -254,7 +298,9 @@ et précisez ce qui a été testé sur simulateur, seulement compilé en firmwar
 
 - Non testé sur la vraie carte (pas de matériel ici) : le firmware compile et le module a été exécuté sur le simulateur PC,
   mais les pilotes `hal_rp2.c` (ILI9341, FT6336U, brochage) restent à valider chez vous.
-- Les 8 Mo de PSRAM ne sont pas utilisés (le framebuffer de 150 Ko tient en SRAM) ; ils serviront aux icônes/PDF plus tard.
+- PSRAM : quand elle est détectée au démarrage, le port MicroPython l'ajoute au tas Python (`MICROPY_GC_SPLIT_HEAP`) ;
+  le tas SRAM est rempli en premier. Le framebuffer de 150 Ko reste en SRAM par défaut (option : voir « Recompiler
+  le firmware »). Non vérifié sur la carte : la détection effective de la PSRAM.
 - Pas encore : lecteur PN532, carte SD, heure/batterie réelles (l'accueil affiche 12:30 et 75 % en dur).
 - Traductions EN/ES/AL/JP/CN faites de mon mieux, sans relecture native - à corriger dans
   `i18n.STRINGS` si une formulation sonne mal, notamment le japonais/chinois.
