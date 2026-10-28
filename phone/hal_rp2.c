@@ -12,6 +12,9 @@
 #include "config.h"
 #include "gfx.h"
 #include "hardware/dma.h"
+#ifdef PHONE_FB_IN_PSRAM
+#include "hardware/psram.h"
+#endif
 #include "hardware/gpio.h"
 #include "hardware/pwm.h"
 #include "pico/stdlib.h"
@@ -103,6 +106,14 @@ static void set_window(int x0, int y0, int x1, int y1) {
     CMD(0x2A, x0 >> 8, x0 & 0xFF, x1 >> 8, x1 & 0xFF);
     CMD(0x2B, y0 >> 8, y0 & 0xFF, y1 >> 8, y1 & 0xFF);
     write_cmd(0x2C);                            /* RAMWR : les pixels suivent */
+}
+
+bool hal_fb_ready(void) {
+#ifdef PHONE_FB_IN_PSRAM
+    return psram_is_available();
+#else
+    return true;
+#endif
 }
 
 static void dma_write16(const uint16_t *src, uint32_t count) {

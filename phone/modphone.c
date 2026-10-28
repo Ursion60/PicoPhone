@@ -51,6 +51,7 @@ static const Font *font_arg(size_t n_args, const mp_obj_t *args, size_t idx) {
 
 static mp_obj_t phone_init(void) {
     if (!s_ready) {
+        if (!hal_fb_ready()) mp_raise_msg(&mp_type_RuntimeError, MP_ERROR_TEXT("PSRAM not available"));
         gfx_init();
         ui_init();
         hal_init();

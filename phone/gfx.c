@@ -1,7 +1,8 @@
 #include "gfx.h"
+#include "hal.h"
 #include <string.h>
 
-static uint16_t fb[SCREEN_W * SCREEN_H];   /* 153 600 octets */
+static uint16_t fb[SCREEN_W * SCREEN_H] HAL_FB_ATTR;   /* 153 600 octets */
 static int dirty_x0, dirty_y0, dirty_x1, dirty_y1;
 
 static void dirty_reset(void) {
@@ -15,7 +16,12 @@ static inline void mark(int x0, int y0, int x1, int y1) {
     if (y1 > dirty_y1) dirty_y1 = y1;
 }
 
-void gfx_init(void) { dirty_reset(); }
+void gfx_init(void) {
+#ifdef PHONE_FB_IN_PSRAM
+    memset(fb, 0, sizeof fb);               /* la PSRAM n'est pas remise à zéro au démarrage */
+#endif
+    dirty_reset();
+}
 
 uint16_t *gfx_framebuffer(void) { return fb; }
 

@@ -8,7 +8,18 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+/* Placement du framebuffer de gfx.c (150 Ko). Par défaut en SRAM. Avec -DPHONE_FB_IN_PSRAM (firmware
+ * uniquement, voir micropython.cmake et tools/build_firmware.sh) il va en PSRAM : 150 Ko de SRAM de plus
+ * pour le tas MicroPython. Expérimental : non testé sur la carte. */
+#ifdef PHONE_FB_IN_PSRAM
+#include "pico.h"
+#define HAL_FB_ATTR __uninitialized_psram("phone_fb")
+#else
+#define HAL_FB_ATTR
+#endif
+
 void hal_init(void);
+bool hal_fb_ready(void);                                            /* false : PSRAM demandée mais absente */
 void hal_backlight(uint8_t level);                                  /* 0-255                        */
 void hal_flush(const uint16_t *fb, int x0, int y0, int x1, int y1); /* zone [x0..x1]x[y0..y1] incluse */
 bool hal_touch(int *x, int *y);                                     /* true = doigt posé            */
