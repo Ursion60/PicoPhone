@@ -8,3 +8,11 @@ __pycache__/
 
 # Environnement Python local créé par tools/setup-deps.sh tools
 .venv/
+
+# Données de l'appli EDT envoyées par tools/sync_pronote.py (jamais versionnées)
+python/edt/
+
+# Synchro Pronote : le JSON d'un QR code contient un jeton, et les identifiants ne doivent jamais être commités
+qr*.json
+pronote*.json
+edt_out/

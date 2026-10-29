@@ -1,0 +1,76 @@
+{
+ "lessons": [
+  {
+   "start": "08:00",
+   "end": "08:55",
+   "subject": "Français",
+   "room": "A03",
+   "teacher": "Mme Martin",
+   "cancelled": false,
+   "note": ""
+  },
+  {
+   "start": "09:00",
+   "end": "09:55",
+   "subject": "Anglais LV1",
+   "room": "C21",
+   "teacher": "Mr Smith",
+   "cancelled": false,
+   "note": ""
+  },
+  {
+   "start": "10:10",
+   "end": "11:05",
+   "subject": "Mathématiques",
+   "room": "B12",
+   "teacher": "M. Dupont",
+   "cancelled": false,
+   "note": "Salle changée"
+  },
+  {
+   "start": "11:10",
+   "end": "12:05",
+   "subject": "Espagnol LV2",
+   "room": "C14",
+   "teacher": "Mme Garcia",
+   "cancelled": false,
+   "note": ""
+  },
+  {
+   "start": "13:00",
+   "end": "13:55",
+   "subject": "Histoire-Géographie",
+   "room": "A01",
+   "teacher": "Mme Roux",
+   "cancelled": false,
+   "note": ""
+  },
+  {
+   "start": "14:00",
+   "end": "14:55",
+   "subject": "Physique-Chimie",
+   "room": "L2",
+   "teacher": "Mme Bernard",
+   "cancelled": false,
+   "note": ""
+  },
+  {
+   "start": "15:10",
+   "end": "16:05",
+   "subject": "SVT",
+   "room": "L3",
+   "teacher": "M. Petit",
+   "cancelled": false,
+   "note": ""
+  },
+  {
+   "start": "16:10",
+   "end": "17:05",
+   "subject": "Étude",
+   "room": "",
+   "teacher": "",
+   "cancelled": false,
+   "note": ""
+  }
+ ]
+}

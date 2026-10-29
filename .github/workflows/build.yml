@@ -81,6 +81,12 @@ jobs:
           done
           exit $rc
 
+      - name: Tests de l'outil de synchro Pronote (CPython, sans réseau)
+        run: |
+          python3 -m venv "$RUNNER_TEMP/pronote-venv"
+          "$RUNNER_TEMP/pronote-venv/bin/pip" install --quiet pronotepy
+          "$RUNNER_TEMP/pronote-venv/bin/python" host/cpython/test_sync_pronote.py -v
+
       - name: Captures d'écran
         if: always()
         uses: actions/upload-artifact@v4

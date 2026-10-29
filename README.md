@@ -28,10 +28,10 @@ le lanceur affiche l'erreur et reste en vie.
 
 | Dossier | Contenu |
 |---|---|
-| `python/` | `main.py` (lanceur), `appkit.py` (boucle d'appli, widgets, clavier), `i18n.py` (traductions), `apps/` (applis), `pdfs/` (PDF d'exemple) |
+| `python/` | `main.py` (lanceur), `appkit.py` (boucle d'appli, widgets, clavier), `i18n.py` (traductions), `apps/` (applis : `edt`, `notes`, `parametres`, `lecteur_pdf`), `pdfs/` (PDF d'exemple) |
 | `phone/` | module C `phone` : rendu (`gfx.c`), accueil (`ui.c`), polices et icônes générées, binding MicroPython (`modphone.c`), HAL carte (`hal_rp2.c`) et PC (`hal_sdl.c`), brochage (`config.h`) |
-| `host/` | tests d'intégration `test_*.py` (simulateur), fixtures PDF, mini-simulateurs C de l'accueil |
-| `tools/` | installation des dépendances, build simulateur/firmware, déploiement, génération des polices/icônes |
+| `host/` | tests d'intégration `test_*.py` (simulateur), `cpython/` (tests de l'outil de synchro), fixtures PDF et EDT, mini-simulateurs C de l'accueil |
+| `tools/` | installation des dépendances, build simulateur/firmware, déploiement, synchro Pronote (`sync_pronote.py`), génération des polices/icônes |
 | `firmware/` | firmware précompilé `phone_core2350b.uf2` |
 | `assets/icons/` | PNG sources des icônes de l'accueil |
 | `build/micropython/` | copie de MicroPython (commit `9a3a0c0`) utilisée par `tools/build_sim.sh` |
@@ -61,6 +61,7 @@ for t in ../host/test_*.py; do SDL_VIDEODRIVER=dummy "$MPY" "$t" || echo "ÉCHEC
 | `test_keyboard.py` | clavier AZERTY, pages 123 et accents |
 | `test_i18n.py` | changement de langue, persistance, tap réel dans Paramètres |
 | `test_pdf.py` | lecteur PDF (xref, flux, polices, accents, ligatures) |
+| `test_edt.py` | appli EDT (navigation, défilement, annulé, fichiers abîmés, date non réglée, 6 langues, fixture de l'outil de synchro) |
 
 ## 2. Sur la carte
 
@@ -142,7 +143,8 @@ Exemples fournis :
 - `apps/notes.py` : deux onglets - Tâches à cocher et Notes en titre+description, avec
   ajout/consultation/édition/suppression au clavier tactile, sauvegardé dans `notes_data.json` (survit à un redémarrage) ;
 - `apps/parametres.py` : luminosité, langue, infos système ;
-- `apps/lecteur_pdf.py` : voir ci-dessous.
+- `apps/lecteur_pdf.py` : voir ci-dessous ;
+- `apps/edt.py` : emploi du temps, voir [EDT et synchro Pronote](#edt-et-synchro-pronote).
 
 `appkit.prompt_text("Titre")` ouvre un clavier AZERTY plein écran et renvoie le texte saisi, ou `None` si Annuler :
 page lettres avec majuscule (^), page chiffres/symboles (123), **page accents (icône « é »)** pour taper
@@ -151,6 +153,45 @@ page lettres avec majuscule (^), page chiffres/symboles (123), **page accents (i
 **Ajouter une icône à l'accueil** : la table des applis est dans `phone/ui.c` (`ui_init`) ; il faut aussi une clé de
 titre dans `python/i18n.py`, une image dans `assets/icons/` (convertie par `tools/gen_icons.py`) et le fichier
 `python/apps/<id>.py`.
+
+## EDT et synchro Pronote
+
+L'appli **EDT** affiche l'emploi du temps jour par jour (◀ ▶ pour changer de jour, un tap sur la date revient à
+aujourd'hui, ▲ ▼ si la journée est longue ; cours annulés en rouge, salle et enseignant sous la matière).
+Elle ne se connecte à rien : elle lit des fichiers que la **synchro** dépose sur la carte.
+
+La connexion Pronote (protocole chiffré, jeton) tourne **sur le PC**, pas sur la carte (aucune puce réseau ici, et
+ce protocole n'a pas sa place sur un microcontrôleur) : `tools/sync_pronote.py` récupère les cours avec
+[pronotepy](https://github.com/bain3/pronotepy), les convertit et les envoie à la carte par USB (`mpremote`).
+
+```bash
+tools/setup-deps.sh tools pronote        # une fois : pronotepy et mpremote dans .venv
+
+# 1re fois : connexion par QR code (fonctionne aussi pour les comptes qui passent par un ENT)
+#   Pronote (navigateur) -> Paramètres -> Application mobile -> générer le QR code et un code à 4 chiffres.
+#   Décodez le QR code en texte JSON (ex. zbarimg --raw qr.png > qr.json), puis :
+tools/sync_pronote.py login --qr qr.json --pin 1234
+
+tools/sync_pronote.py sync --push        # d'hier à dans 14 jours (--back, --days), envoyé à la carte, heure de la carte réglée
+tools/sync_pronote.py demo --push        # données fictives, sans réseau ni compte : pour essayer l'appli
+```
+
+- **Secrets** : l'URL, le jeton et l'uuid restent dans `~/.config/picophone/pronote.json` (droits 0600), jamais dans le
+  dépôt. Pronote renouvelle le jeton à chaque connexion : il est réenregistré aussitôt. Le JSON du QR code contient un
+  jeton à usage unique ; `qr*.json`, `pronote*.json` et `edt_out/` sont ignorés par git.
+- **Format sur la carte** (voir l'en-tête de `python/apps/edt.py`) : `edt/meta.json` (date de synchro, jours qui ont
+  des cours) + un fichier `edt/AAAA-MM-JJ.json` par jour. Un seul jour est chargé en RAM à la fois (≈ 8 Ko quand
+  l'appli est ouverte). L'envoi est atomique par fichier (`.tmp` puis renommage, `meta.json` en dernier) et supprime
+  les jours périmés ; un fichier absent ou abîmé est signalé à l'écran, jamais une exception.
+- **Heure** : la carte n'a pas d'horloge fiable. `sync --push` règle son horloge avec celle du PC (`--no-rtc` pour
+  ne pas le faire) ; après un redémarrage elle est perdue et l'appli se rabat sur la date de la dernière synchro, en
+  l'indiquant (« Date non réglée »).
+- **Limites** : emploi du temps seul (pas de devoirs ni de notes) ; pas de double authentification gérée ; l'API
+  Pronote utilisée par pronotepy n'est pas officielle et peut changer sans préavis ; un jour affiche au plus 16 cours.
+- **Ce qui est vérifié** : les 3 couches (appli, outil, envoi) sont testées, y compris un envoi réel avec `mpremote` vers
+  un MicroPython Unix qui joue la carte, et les appels de l'outil sont comparés aux signatures réelles de pronotepy
+  (`host/cpython/test_sync_pronote.py`). **Jamais essayé contre un vrai serveur Pronote** (pas de compte ici), ni sur la
+  vraie carte.
 
 ## Lecteur PDF
 
@@ -241,8 +282,8 @@ grandeur, pas des valeurs de la carte) :
 | Page 0 de `host/fixtures/long.pdf` (en `.mpy`) | 256 Ko | 192 Ko (`result()` sans liste par caractère) |
 | Page 0 de `host/fixtures/truetype.pdf` (en `.mpy`) | 208 Ko | 112 Ko |
 
-Mémoire retenue en permanence une fois importé : `i18n` ≈ 25 Ko (6 langues chargées), `appkit` ≈ 9 Ko, `apps.pdftext`
-≈ 23 Ko. Pour mesurer un cas : `micropython -X heapsize=160k script.py`, et descendre depuis un grand tas jusqu'au
+Mémoire retenue en permanence une fois importé : `i18n` ≈ 31 Ko (6 langues chargées ; l'EDT y a ajouté ≈ 6 Ko), `appkit`
+≈ 9 Ko, `apps.pdftext` ≈ 23 Ko, `apps.edt` ≈ 8 Ko (seulement pendant que l'appli est ouverte). Pour mesurer un cas : `micropython -X heapsize=160k script.py`, et descendre depuis un grand tas jusqu'au
 premier échec (la fragmentation rend un test « premier succès en montant » trompeur). `host/test_notes_scroll.py`
 réclame un gros tas parce que le test relit une capture de 230 Ko, pas à cause de l'appli.
 
@@ -259,6 +300,8 @@ déploiement sans recompiler).
 - `tools/gen_icons.py` : convertit `assets/icons/*.png` en `phone/icons_data.c` (44x44, coins transparents).
 - `phone/font_data.c` et `phone/icons_data.c` sont **générés** : ne les modifiez pas à la main, relancez le script.
 - `tools/push_pdf.sh` : copie des PDF dans `:pdfs/` sur la carte.
+- `tools/sync_pronote.py` : synchro de l'emploi du temps Pronote (voir [EDT et synchro Pronote](#edt-et-synchro-pronote)) ;
+  ses tests : `python3 host/cpython/test_sync_pronote.py` (`UPDATE_FIXTURES=1` régénère `host/fixtures/edt/`).
 - `host/sim.c` : simulateur de l'écran d'accueil seul (compile en 1 s, sans MicroPython). `host/preview.c` : export .ppm.
 
 ## Intégration continue
@@ -269,6 +312,10 @@ et sur lancement manuel (onglet **Actions** -> *Build* -> *Run workflow*) :
   (`SDL_VIDEODRIVER=dummy`) ; artefacts `captures-simulateur` (`/tmp/*.ppm`) et `picophone-apps` (fichiers copiés par `deploy.sh`) ;
 - **firmware** : `tools/build_firmware.sh` sur un clone de MicroPython épinglé (`MPY_REF`, même commit que
   `build/micropython`) ; artefact `firmware-uf2`.
+
+Le job simulateur rejoue aussi les tests depuis des modules `.mpy` seuls (comme sur la carte) et lance les tests de
+l'outil de synchro Pronote avec pronotepy ; le job firmware compile la variante « framebuffer en PSRAM » pour vérifier qu'elle
+compile et que `fb` est bien en PSRAM.
 
 Un tag `v*` (ex. `git tag v0.2 && git push origin v0.2`) crée en plus une release GitHub avec le `.uf2` et le zip des applis.
 Le firmware est seulement compilé : la CI ne le teste pas sur la carte.
@@ -301,7 +348,9 @@ et précisez ce qui a été testé sur simulateur, seulement compilé en firmwar
 - PSRAM : quand elle est détectée au démarrage, le port MicroPython l'ajoute au tas Python (`MICROPY_GC_SPLIT_HEAP`) ;
   le tas SRAM est rempli en premier. Le framebuffer de 150 Ko reste en SRAM par défaut (option : voir « Recompiler
   le firmware »). Non vérifié sur la carte : la détection effective de la PSRAM.
-- Pas encore : lecteur PN532, carte SD, heure/batterie réelles (l'accueil affiche 12:30 et 75 % en dur).
+- Pas encore : lecteur PN532, carte SD, heure/batterie réelles (l'accueil affiche 12:30 et 75 % en dur) ;
+  les icônes Synchro, NFC, Shop et Musique n'ont pas d'appli. La synchro de l'EDT se fait pour l'instant depuis le PC
+  (`tools/sync_pronote.py`), pas depuis l'écran de la carte.
 - Traductions EN/ES/AL/JP/CN faites de mon mieux, sans relecture native - à corriger dans
   `i18n.STRINGS` si une formulation sonne mal, notamment le japonais/chinois.
 - Clavier : la page accents couvre é è ê ë à â ä ù û ü ï î ô ö ç ñ (français/espagnol/allemand) -
