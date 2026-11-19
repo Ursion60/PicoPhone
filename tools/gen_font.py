@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Génère phone/font_data.c : polices bitmap anti-aliasées (alpha 8 bits) pour l'écran.
+Génère phone/font_data.c (C) et rust/crates/picophone-gfx/src/fonts_data.rs + data/*.bin (Rust) :
+polices bitmap anti-aliasées (alpha 8 bits) pour l'écran. Les deux sorties décrivent exactement les mêmes données.
   - Glyphes ASCII + Latin-1 (0x20-0x7E, 0xA0-0xFF) : DejaVu Sans Bold, comme avant.
   - Glyphes "larges" (CJK...) : uniquement ceux réellement utilisés par les traductions de
     python/i18n.py (recherche dichotomique sur le codepoint, voir font.h). On n'embarque PAS
@@ -99,6 +100,13 @@ def build(size, cjk_font):
     return ascent, descent, glyphs, wide, blob
 
 
+RUST_GFX = HERE / "rust" / "crates" / "picophone-gfx"
+
+
+def rust_glyph(off, w, h, xo, yo, adv):
+    return f"g({off}, {w}, {h}, {xo}, {yo}, {adv})"
+
+
 def main():
     try:
         cjk_font = ImageFont.truetype(CJK_TTF, 10, index=CJK_TTC_INDEX)
@@ -110,8 +118,26 @@ def main():
 
     out = ["/* Fichier généré par tools/gen_font.py - ne pas éditer à la main. */",
            '#include "font.h"', ""]
+    rs = ["// Fichier généré par tools/gen_font.py - ne pas éditer à la main.",
+          "use crate::font::{Font, Glyph, WideGlyph};", "",
+          "const fn g(off: u16, w: u8, h: u8, xo: i8, yo: i8, adv: u8) -> Glyph {",
+          "    Glyph { off, w, h, xo, yo, adv }", "}", ""]
+    (RUST_GFX / "data").mkdir(parents=True, exist_ok=True)
     for name, size in FONTS:
         ascent, descent, glyphs, wide, blob = build(size, cjk_font)
+        up = name.upper()
+        (RUST_GFX / "data" / f"{name}.bin").write_bytes(bytes(blob))
+        rs.append(f"static {up}_GLYPHS: [Glyph; {len(glyphs)}] = [")
+        rs.extend(f"    {rust_glyph(*gl)}," for gl in glyphs)
+        rs.append("];")
+        rs.append(f"static {up}_WIDE: [WideGlyph; {len(wide)}] = [")
+        rs.extend(f"    WideGlyph {{ cp: {cp}, g: {rust_glyph(off, w, h, xo, yo, adv)} }},"
+                  for cp, off, w, h, xo, yo, adv in wide)
+        rs.append("];")
+        rs.append(f"pub static {up}: Font = Font {{ glyphs: &{up}_GLYPHS, "
+                  f'bitmap: include_bytes!("../data/{name}.bin"), line_h: {ascent + descent}, '
+                  f"ascent: {ascent}, wide: &{up}_WIDE }};")
+        rs.append("")
         out.append(f"static const uint8_t {name}_bmp[{len(blob)}] = {{")
         for i in range(0, len(blob), 24):
             out.append("    " + ",".join(str(b) for b in blob[i:i + 24]) + ",")
@@ -138,6 +164,10 @@ def main():
     dst = HERE / "phone" / "font_data.c"
     dst.write_text("\n".join(out), encoding="utf-8")
     print(f"-> {dst}")
+    rdst = RUST_GFX / "src" / "fonts_data.rs"
+    rdst.parent.mkdir(parents=True, exist_ok=True)
+    rdst.write_text("\n".join(rs), encoding="utf-8")
+    print(f"-> {rdst} (+ data/*.bin)")
 
 
 if __name__ == "__main__":

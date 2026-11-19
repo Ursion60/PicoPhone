@@ -1,0 +1,6 @@
+[build]
+target = "thumbv8m.main-none-eabihf"
+
+[target.'cfg(all(target_arch = "arm", target_os = "none"))']
+# Carte branchée en mode BOOTSEL : cargo run --release flashe l'ELF avec picotool.
+runner = "picotool load -u -v -x -t elf"

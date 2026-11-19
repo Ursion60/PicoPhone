@@ -1,0 +1,16 @@
+[package]
+name = "picophone-parity"
+version = "0.1.0"
+description = "Tests de parité : le moteur C historique (phone/*.c) et le port Rust doivent produire les mêmes pixels."
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+
+[build-dependencies]
+cc.workspace = true
+
+[dev-dependencies]
+picophone-gfx.workspace = true
+picophone-ui.workspace = true

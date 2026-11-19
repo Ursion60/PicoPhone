@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Génère phone/icons_data.c à partir des PNG dans assets/icons/ (44x44, RGBA -> RGB565 + alpha 8 bits,
+Génère phone/icons_data.c (C) et rust/crates/picophone-gfx/src/icons_data.rs (Rust) à partir des PNG dans assets/icons/ (44x44, RGBA -> RGB565 + alpha 8 bits,
 comme les glyphes de gen_font.py). Les coins transparents du PNG laissent voir le fond gris de l'accueil.
 
 Usage (depuis la racine du projet) :
@@ -13,6 +13,7 @@ from PIL import Image
 SIZE = 44   # = iconSize dans ui.c (taille de la case colorée)
 SRC = pathlib.Path(__file__).parent.parent / "assets" / "icons"
 DST = pathlib.Path(__file__).parent.parent / "phone" / "icons_data.c"
+RUST_DST = pathlib.Path(__file__).parent.parent / "rust" / "crates" / "picophone-gfx" / "src" / "icons_data.rs"
 
 # Nom de fichier (sans .png) -> identifiant C (doit correspondre aux apps de ui.c)
 NAMES = {
@@ -32,6 +33,7 @@ def main():
 
     out = ["/* Fichier généré par tools/gen_icons.py - ne pas éditer à la main. */",
            '#include "gfx.h"', ""]
+    rs = ["// Fichier généré par tools/gen_icons.py - ne pas éditer à la main.", "use crate::Icon;", ""]
     order = []
     for f in files:
         cid = NAMES.get(f.stem)
@@ -54,12 +56,23 @@ def main():
             out.append("    " + ",".join(str(v) for v in alpha[i:i + 24]) + ",")
         out.append("};")
         out.append(f"const Icon icon_{cid} = {{ {SIZE}, {SIZE}, icon_{cid}_px, icon_{cid}_a }};")
+        up = cid.upper()
+        rs.append(f"static ICON_{up}_PX: [u16; {SIZE * SIZE}] = [")
+        rs.extend("    " + ", ".join(str(v) for v in pix[i:i + 16]) + "," for i in range(0, len(pix), 16))
+        rs.append("];")
+        rs.append(f"static ICON_{up}_A: [u8; {SIZE * SIZE}] = [")
+        rs.extend("    " + ", ".join(str(v) for v in alpha[i:i + 24]) + "," for i in range(0, len(alpha), 24))
+        rs.append("];")
+        rs.append(f"pub static ICON_{up}: Icon = Icon {{ w: {SIZE}, h: {SIZE}, px: &ICON_{up}_PX, alpha: &ICON_{up}_A }};")
+        rs.append("")
         out.append("")
         order.append(cid)
         print(f"icon_{cid}: {SIZE}x{SIZE}, {2 * SIZE * SIZE} + {SIZE * SIZE} octets")
 
     DST.parent.mkdir(exist_ok=True)
     DST.write_text("\n".join(out), encoding="utf-8")
+    RUST_DST.parent.mkdir(parents=True, exist_ok=True)
+    RUST_DST.write_text("\n".join(rs), encoding="utf-8")
     print(f"-> {DST}  ({len(order)} icônes : {', '.join(order)})")
 
 

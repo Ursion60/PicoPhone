@@ -3,7 +3,7 @@ name: Build
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main, develop, rust]
     tags: ["v*"]
   pull_request:
   workflow_dispatch:
@@ -141,6 +141,46 @@ jobs:
           sym="$(arm-none-eabi-nm "$RUNNER_TEMP/micropython/ports/rp2/build-WAVESHARE_RP2350B_CORE-fbpsram/firmware.elf" | grep ' b fb$')"
           echo "$sym"
           case "$sym" in 11*) ;; *) echo "::error::fb n'est pas en PSRAM"; exit 1 ;; esac
+
+  rust:
+    name: Rust (gfx, ui, parité avec le C, firmware)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: rust
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Toolchain (rust-toolchain.toml)
+        run: rustup toolchain install
+
+      - name: Format
+        run: |
+          cargo fmt --all -- --check
+          (cd firmware && cargo fmt -- --check)
+
+      - name: Clippy
+        run: cargo clippy --workspace --all-targets -- -D warnings
+
+      - name: Tests (dont parité pixel avec le moteur C)
+        run: cargo test --workspace
+
+      - name: Firmware RP2350B
+        working-directory: rust/firmware
+        run: |
+          cargo clippy --release -- -D warnings
+          cargo build --release
+
+      - name: Captures du simulateur
+        run: cargo run -q -p picophone-sim -- "$RUNNER_TEMP/captures-rust"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rust-firmware-et-captures
+          path: |
+            rust/firmware/target/thumbv8m.main-none-eabihf/release/picophone-firmware
+            ${{ runner.temp }}/captures-rust/*.ppm
 
   release:
     name: Publication

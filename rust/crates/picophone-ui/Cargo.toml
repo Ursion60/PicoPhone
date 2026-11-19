@@ -1,0 +1,11 @@
+[package]
+name = "picophone-ui"
+version = "0.1.0"
+description = "Écran d'accueil et de chargement (port de phone/ui.c), sans std ni allocation."
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+picophone-gfx.workspace = true
+heapless.workspace = true

@@ -1,0 +1,22 @@
+# PicoPhone en Rust : système complet (pas de MicroPython). Voir README.md.
+[workspace]
+resolver = "3"
+members = [
+    "crates/picophone-gfx",
+    "crates/picophone-ui",
+    "crates/picophone-sim",
+    "crates/picophone-parity",
+]
+# Le firmware a sa propre cible (thumbv8m.main-none-eabihf) et son propre .cargo/config.toml.
+exclude = ["firmware"]
+
+[workspace.package]
+edition = "2024"
+rust-version = "1.85"
+publish = false
+
+[workspace.dependencies]
+picophone-gfx = { path = "crates/picophone-gfx" }
+picophone-ui = { path = "crates/picophone-ui" }
+heapless = "0.9"
+cc = "1"

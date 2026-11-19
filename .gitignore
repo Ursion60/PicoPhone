@@ -16,3 +16,7 @@ python/edt/
 qr*.json
 pronote*.json
 edt_out/
+
+# Rust
+rust/target/
+rust/firmware/target/

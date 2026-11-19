@@ -1,0 +1,11 @@
+[package]
+name = "picophone-sim"
+version = "0.1.0"
+description = "Simulateur PC de PicoPhone (Rust) : rend les écrans et écrit des captures, sans fenêtre."
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+picophone-gfx.workspace = true
+picophone-ui.workspace = true

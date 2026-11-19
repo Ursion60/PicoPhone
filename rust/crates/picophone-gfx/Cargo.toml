@@ -1,0 +1,9 @@
+[package]
+name = "picophone-gfx"
+version = "0.1.0"
+description = "Moteur 2D sur framebuffer RGB565 240x320 (port de phone/gfx.c), sans std ni allocation."
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]

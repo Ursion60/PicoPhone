@@ -24,6 +24,9 @@ le lanceur affiche l'erreur et reste en vie.
 [API `phone`](#api-du-module-phone) · [Outils](#outils) · [CI](#intégration-continue) ·
 [Contribuer](#contribuer) · [Limites](#limites-connues) · [Dépannage](#dépannage)
 
+> **Branche `rust`** : réécriture complète en Rust (système compris, sans MicroPython) en cours dans
+> [`rust/`](rust/README.md). Le code C/MicroPython ci-dessous reste la référence tant que le port n'est pas terminé.
+
 ## Organisation du dépôt
 
 | Dossier | Contenu |
